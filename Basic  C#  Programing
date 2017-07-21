@@ -26,11 +26,49 @@ public class Program{
 }
 -------the answer is (55 55 20)------------
 
-About parameter pass :
- Passed as Value: The parameter value will be copied to the method's parameter. If any changes are made to this value, the changes will not be reflected to the calling environment. This type of parameter passing can only be used to send values to the method.
+<h4>About parameter pass :<h4>
+  Passed as Value: The parameter value will be copied to the method's parameter.
+  If any changes are made to this value, the changes will not be reflected to the calling environment.
+  This type of parameter passing can only be used to send values to the method.
 
    1. A parameter passed as value has to follow the below conditions: 
 
    2.It should be initialized before the method call
 
    3.The method call can pass direct values or variables
+   
+<h4>Passed as Reference: <h4>
+ The reference of the variable, passed as parameter, will be sent to the method.
+ If any changes are made to the value inside the method, the changes will be reflected to the calling environment.
+ A parameter passed as reference has to follow the below conditions: 
+
+  1.It should be initialized before the method call
+
+  2.ref keyword must be specified both in the method call and in the method definition
+
+  3.The method call cannot take direct values, only variables can be passed
+
+  A method can have any number of ref parameters
+  
+ <h4>Passed as Output :</h4>
+  This indicates that the variable which is passed as a parameter will be used by the method to 
+  store values to be sent back to the calling environment. 
+
+   1.A parameter passed as output has to follow these rules:
+
+   2.Need not be initialized before the method call
+
+   3.Should be assigned with a value inside the method
+
+   4.out keyword must be specified both in the method call and in the method definition
+
+   5.The method call cannot take direct values, only variables can be passed
+
+    A method can have any number of out parameters
+  
+ <p style="color:green"> Question: the differences between OUT and REF?</p>
+  Answer : 
+     ref : Should be initialized before the method call. 
+           Method call can not pass direct values, only variables can be passed. 
+     out : Need not be initialized before the method call. 
+           Method call can not pass direct values, only variables can be passed.
