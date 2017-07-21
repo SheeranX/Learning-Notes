@@ -1,0 +1,36 @@
+------------The C# question 1----------
+class Calculator{
+	    private static int num=10;
+	    public static void Reset() {
+		    num=0;
+	    }
+	    public static void Add() {
+		    num+=10;
+	    }
+	    public static void Sub(int num) {
+		    num-=5;
+	    }
+	    public static void Show() {
+		    Console.Write(num+ " ");
+	    }
+}
+public class Program{
+	public static void Main(string[] args) {
+		int num=55;
+		Calculator.Sub(num);
+		Console.Write(num+ " ");	
+		Calculator .Add();
+		Console.Write(num+ " ");	
+		Calculator .Show();
+	}
+}
+-------the answer is (55 55 20)------------
+
+About parameter pass :
+ Passed as Value: The parameter value will be copied to the method's parameter. If any changes are made to this value, the changes will not be reflected to the calling environment. This type of parameter passing can only be used to send values to the method.
+
+   1. A parameter passed as value has to follow the below conditions: 
+
+   2.It should be initialized before the method call
+
+   3.The method call can pass direct values or variables
