@@ -1,0 +1,66 @@
+----------The AngularJS note------------
+
+1. <h4>submit form :</h4>
+   html:
+  <form ng-submit="processForm()">
+            username: <input type="text" name="username" ng-model="formData.Username"/> <br />
+            password: <input type="text" name="password" ng-model="formData.Password"/> <br />
+            <input type="submit" name="submit" value="button" />
+            <hr />
+            <p>{{info}}</p>
+            <p>{{formData}}</p>
+    </form>
+   
+    JS:
+      var app = angular.module("myApp", []);
+        app.controller("ctrl", ["$scope", "$http", function ($scope, $http) {
+            $scope.formData = {"Username":"sheeran","Password":"111111"};
+            $scope.processForm = function () {
+                //alert("--");
+                $http.post("/api/Login/PostLogin",$scope.formData).then(function (response) {//use .NET webapi 
+                    $scope.info = response.data;
+                });
+            };
+        }]);
+        
+        
+  2. ng-click: 
+     html:
+     <div ng-app="myApp" ng-controller="ctrl">
+        <ul ng-repeat="x in  album.ds">
+            <li>{{x.albumId+"-----"+x.albumName}}</li>
+        </ul>
+        <input type="text" name="getbyid" ng-model="getid"/>
+        <input type="button" name="button" value="get" ng-click="GetById()" />
+        <hr />
+        <p ng-repeat="y in info.ds">{{y.albumName}}</p>
+        <p>{{info}}</p>
+        <hr />
+        <input type="text" name="infoByname" ng-model="alname"/>
+        <input type="button" name="btninfo" value="get" ng-click="GetByName()"/>
+        <hr />
+        <p>{{alinfo}}</p>
+      </div>
+      
+      JS:
+       var app = angular.module("myApp", []);
+        app.controller("ctrl", ["$scope", "$http", function ($scope, $http) {
+            // alert("--");
+            $scope.getid = "";
+            $scope.alname = "";
+            $http.get("/api/Album").then(function (response) {// use webapi
+                $scope.album = response.data;
+            });
+            $scope.GetById = function () {
+                $http.post("/api/Album/" + $scope.getid).then(function (response) {
+                    $scope.info = response.data;
+                });
+            }
+            $scope.GetByName = function () {
+                $http.get("/api/Album/",$scope.alname).then(function (response) {
+                    $scope.alinfo = response.data.ds;
+                });
+            }
+        }]);
+   // the difference of GET and POST  
+   
