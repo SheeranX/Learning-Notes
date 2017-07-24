@@ -109,3 +109,24 @@ Tips:
 
   2.No additional parameters are permitted after the 'params' keyword in a method declaration, 
   and only one params keyword is permitted in a method declaration. 
+  
+---------------------Question&Answer---------------------
+public class Program
+    {
+        public static double CalculateBill(params double[] values)
+        {
+            double result = 0;
+            foreach (double val in values)
+            {
+                result += val;
+            }
+            return result;
+        }
+        public static void Main()
+        {
+           // call to 'CalculateBill'  method 
+        }
+    }
+   -----------Answer(CalculateBill();
+                     CalculateBill(12,13);
+		     CalculateBill(12.5, 13.5, 14.5, 15.5);)-----------------
