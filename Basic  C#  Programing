@@ -72,3 +72,31 @@ public class Program{
            Method call can not pass direct values, only variables can be passed. 
      out : Need not be initialized before the method call. 
            Method call can not pass direct values, only variables can be passed.
+-----Question & Answer-----------	   
+class Program
+    {
+        public static void AllocateMovie(string theatreName, out TimeSpan movieTiming,
+         out string movieName)
+        {
+            if (theatreName.Equals("INOX") || theatreName.Equals("PVR"))
+            {
+                movieName = "Captain America:Civil War";
+                movieTiming = new TimeSpan(9, 30, 00);
+            }
+            else
+            {
+                movieName = "The Jungle Book";
+                movieTiming = new TimeSpan(10, 00, 00);
+            }
+        }
+        static void Main(string[] args)
+        {
+            string movieName;
+            TimeSpan movieTiming;
+            AllocateMovie("PVR", out movieTiming, out movieName);
+            Console.WriteLine("Movie Timing :{0} ",movieTiming);
+            Console.WriteLine("Movie Name : {0}", movieName);  
+        }
+    }
+   -------------Answer (Movie Timing :09:30:00 
+                        Movie Name : Captain America:Civil War)-------------------
