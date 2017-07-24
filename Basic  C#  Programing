@@ -152,3 +152,12 @@ public class Laptop
        }
    }
    -------Answer(  Aggregation )
+   
+~~~~~~~~~~~~~Inheritance:
+   1.The class that is already existing is called as base class or parent class and the class which is created from the already existing class is called derived class or child class
+
+   2.Only public and protected members of a base class are inherited in derived classes
+
+   3.A class cannot inherit from multiple classes
+
+   4.Inheritance is also known as is-a relationship or Generalization / Specialization relationship
