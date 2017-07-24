@@ -100,3 +100,12 @@ class Program
     }
    -------------Answer (Movie Timing :09:30:00 
                         Movie Name : Captain America:Civil War)-------------------
+			
+Params allows methods to receive variable number of parameters and these parameters passed 
+to a method will be converted into a temporary array.
+They are comma-separated list of arguments of the type specified in the parameter declaration. 
+Tips:
+  1.If we do not send any arguments, the length of the 'params' list is zero.
+
+  2.No additional parameters are permitted after the 'params' keyword in a method declaration, 
+  and only one params keyword is permitted in a method declaration. 
