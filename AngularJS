@@ -70,3 +70,10 @@
       2.It also is a JS object but it is one instance per an Angular app .
 
       3.It  is shared globally between all the controllers of the application unlike $scope which is one instance per controller.
+   Remember!!!
+
+      1.$rootScope is one instance per application.
+
+      2.Model registered with $rootScope is global and i.e. shared between the controllers.
+ 
+      3.Change of model in $rootScope will be reflected globally.
