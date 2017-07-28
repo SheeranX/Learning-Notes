@@ -5,3 +5,18 @@ SQL Server Management Studio windows with their description:
    Error list window     ------> Display the list of error in the SQL queries
    Messages tab in Output window-----> Display the number of row effects 
 
+ DDL&DML
+    
+    DDL:CREATE  ALTER     DROP      TRUNCATE
+    DML:Insert  Update    Delete    Select
+  
+   EXAMPLE:
+     Create table card(
+       [cardID] numeric(10) constraint pk_cardid primary key,
+       [cardName] varchar(50) not null,
+       [cartType] char(4) not null constraint chk_cardtype check(cardType in ('A','B','C')),
+       [ExpireDate] date not null constraint chk_expiredeta check(ExpireDate>=getdate())
+       );
+
+
+
