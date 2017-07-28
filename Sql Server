@@ -11,12 +11,27 @@ SQL Server Management Studio windows with their description:
     DML:Insert  Update    Delete    Select
   
    EXAMPLE:
-     Create table card(
-       [cardID] numeric(10) constraint pk_cardid primary key,
-       [cardName] varchar(50) not null,
-       [cartType] char(4) not null constraint chk_cardtype check(cardType in ('A','B','C')),
+    1. Create table CardDetails(
+       [CardNumber] numeric(10) constraint pk_cardid primary key,
+       [NameOnCard] varchar(50) not null,
+       [CardType] char(4) not null constraint chk_cardtype check(cardType in ('A','B','C')),
        [ExpireDate] date not null constraint chk_expiredeta check(ExpireDate>=getdate())
-       );
+       ...
+        );
 
 
-
+    2. INSERT INTO CardDetails(CardNumber,NameOnCard,CardType,CVVNumber,ExpiryDate,Balance) 
+         VALUES(1146665296881890,'Manuel','M',137,'2025-03-18',7282.00) 
+       INSERT INTO CardDetails(CardNumber,NameOnCard,CardType,CVVNumber,ExpiryDate,Balance) 
+         VALUES(1164283045453550,'Renate Messner','V  ',133,'2028-01-08',14538.00) 
+       INSERT INTO CardDetails(CardNumber,NameOnCard,CardType,CVVNumber,ExpiryDate,Balance) 
+         VALUES(1164916976389880,'Rita','M',588,'2025-07-28',18570.00) 
+       INSERT CardDetails(CardNumber,NameOnCard,CardType,CVVNumber,ExpiryDate,Balance) 
+         VALUES (1172583365804160,'McKenna','V  ',777,'2028-04-05',7972.00), 
+                (1190676541467400, 'Brown','V  ',390,'2029-09-10',9049.00), 
+                (1201253053391160, 'Patricia','M',501,'2029-06-24',19092.00)
+     
+        tips:
+         Observe that 3 rows are affected one by one in ANSI-SQL syntax, which means that 3 rows are inserted into the 
+         table one at a time. Whereas in T-SQL syntax, all the 3 rows are inserted together, hence 3 rows are affected at 
+         the same time. Also, observe that the keyword INTO is not mandatory in T-SQL syntax.
