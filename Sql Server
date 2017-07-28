@@ -1,0 +1,7 @@
+SQL Server Management Studio windows with their description:
+   Object explorer window-----> Shows the various available database objects
+   Query editor window   -----> Use to type and execute SQL queries
+   Results tab in Output window-----> Display the table datain the form of a grid 
+   Error list window     ------> Display the list of error in the SQL queries
+   Messages tab in Output window-----> Display the number of row effects 
+
