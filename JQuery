@@ -19,7 +19,7 @@ Then we should know how to add function , here is the remarkable function I use 
       $(".class").parent().addClass("hinge");
       
 some JavaScript operations:
-  1： .push()--akes one or more parameters and "pushes" them onto the end of the array.
+  1： .push()--takes one or more parameters and "pushes" them onto the end of the array.
   2:  .pop() --is used to "pop" a value off of the end of an array. We can store this "popped off" value by assigning it to a variable.
   3： .shift()-- it works just like .pop(), except it removes the first element instead of the last.
   4:  .unshift()-- works exactly like .push(), but instead of adding the element at the end of the array, unshift() adds the element at the beginning of the array.
