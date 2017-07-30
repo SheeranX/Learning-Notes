@@ -24,3 +24,15 @@ some JavaScript operations:
   3： .shift()-- it works just like .pop(), except it removes the first element instead of the last.
   4:  .unshift()-- works exactly like .push(), but instead of adding the element at the end of the array, unshift() adds the element at the beginning of the array.
   
+the difference between '==' ,'=' and '==='
+ examples:
+    1 != 2      // true
+    1 != "1"    // false
+    1 != '1'    // false
+    1 != true   // false
+    0 != false  // false
+    
+    "==" compare the value 
+    '===' value and type
+    '=' assign value
+    '!=' not equal 
