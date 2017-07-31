@@ -161,3 +161,19 @@ public class Laptop
    3.A class cannot inherit from multiple classes
 
    4.Inheritance is also known as is-a relationship or Generalization / Specialization relationship
+   
+   -----Recursive algorithm-----
+   Example:
+    	有一列数1，1，2，3，5，........求第30个数.
+	//
+	    public static int Foo(int i)
+	    {
+	       if (i <= 0)
+		    return 0;
+	       else if (i > 0 && i <= 2)
+		    return 1;
+	       else
+		    return  Foo(i - 1) + Foo(i - 2);
+	    }
+
+ 	//
