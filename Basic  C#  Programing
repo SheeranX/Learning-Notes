@@ -177,3 +177,39 @@ public class Laptop
 	    }
 
  	//
+	-----------Bubble Sort----------------
+	 public static int[] BubbleSort(int[] a) {
+            for (int i = 0; i < a.Length - 1; i++)
+            {
+                for (int j = 0; j < a.Length - 1 - i; j++)
+                {
+                    if (a[j] > a[j + 1])
+                        exchange(a,j,j+1);// the medthod to exchange data
+                }
+            }
+            return a;
+        }
+	
+	---------------bubble sort + ----------------
+	 public static int[] WineSort(int[] a) {
+            int left = 0;
+            int right = a.Length-1;
+
+            while (left < right)
+            {
+                for (int i = left; i < right; i++)
+                {
+                    if (a[i] > a[i+1]) {
+                        exchange(a,i,i+1);
+                    }
+                }
+                right--;
+                for (int j = right; j>left;j-- ) {
+                    if (a[j - 1] > a[j]) {
+                        exchange(a,j-1,j);// the medthod to exchange data
+                    }
+                }
+                left++;
+            }
+            return a;
+        }
