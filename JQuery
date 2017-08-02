@@ -112,3 +112,6 @@ The answer is :
 // Only change code above this line
    
 }
+
+//  Math.random()  only return the number between 0~1
+  
