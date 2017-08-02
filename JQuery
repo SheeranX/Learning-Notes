@@ -114,4 +114,17 @@ The answer is :
 }
 
 //  Math.random()  only return the number between 0~1
-  
+
+-----------constructor-------------
+  var Car = function() {
+  this.wheels = 4;
+  this.engines = 1;
+  this.seats = 5;
+};
+-------Object--------------
+   var Car = {
+     "color":"red",
+     "height":123,
+     "weight":33
+   }
+
