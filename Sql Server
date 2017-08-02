@@ -35,3 +35,13 @@ SQL Server Management Studio windows with their description:
          Observe that 3 rows are affected one by one in ANSI-SQL syntax, which means that 3 rows are inserted into the 
          table one at a time. Whereas in T-SQL syntax, all the 3 rows are inserted together, hence 3 rows are affected at 
          the same time. Also, observe that the keyword INTO is not mandatory in T-SQL syntax.
+         
+---------SQL SELECT INTO----------------
+
+      SELECT Persons.LastName,Orders.OrderNo
+      INTO Persons_Order_Backup
+      FROM Persons
+      INNER JOIN Orders
+      ON Persons.Id_P=Orders.Id_P
+      
+------------------------------------------
