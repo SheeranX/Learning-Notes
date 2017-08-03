@@ -213,3 +213,18 @@ public class Laptop
             }
             return a;
         }
+	
+----------------Select Sort----------------------------------
+        public static int[] SelectSort(int[] a ) {
+            int min;
+            for (int i = 0;i<a.Length-1 ;i++ ) {
+               min = i;
+                for (int j = i + 1; j < a.Length; j++) {
+                    if (a[j] < a[min])
+                        min = j;
+                }
+                if (min != i)
+                    exchange(a,min,i);
+            }
+            return a;
+        }
