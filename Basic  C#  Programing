@@ -264,3 +264,25 @@ public class Laptop
             }
             return A;
         }
+--------------shell sort-------------------
+ public static int[] ShellSort(int[] A)
+        {
+            int h = 0;
+            while(h<=A.Length){
+                h = 3 * h + 1;
+            }
+            while(h>=1){
+                for (int i = h;i<A.Length;i++ ) {
+                    int j = i - h;
+                    int temp = A[i];
+                    while(j>=0&&A[j]>temp){
+                        A[j + h] = A[j];
+                        j = j - h;
+                    }
+                    A[j + h] = temp;
+                }
+                h = (h - 1) / 3;
+            }
+            return A;
+        }
+	
