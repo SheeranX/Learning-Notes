@@ -244,4 +244,23 @@ public class Laptop
             }
                 return a;
         }
-
+---------------------Insertion Sort Dichotomy-------------
+ public static int[] InsertionSortDichotomy(int[] A) {
+            for (int i =1;i<A.Length ; i++) {
+                int temp = A[i];
+                int left = 0;
+                int right = i - 1;
+                while(left<=right){
+                    int mid = (left+right)/2;
+                    if (A[mid] > temp)
+                        right = mid - 1;
+                    else
+                        left = mid + 1;
+                }
+                for (int j = i-1;j>=left ;j-- ) {
+                    A[j + 1] = A[j];
+                }
+                A[left] = temp;
+            }
+            return A;
+        }
