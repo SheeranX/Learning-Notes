@@ -286,3 +286,61 @@ public class Laptop
             return A;
         }
 	
+----------------use of List<T>,ArrayList,LinkedList<T> -----------------
+     ------------ArrayList and List
+
+code :
+   class Program
+    {
+        static void Main(string[] args)
+        {
+            People[] p = new People[] {
+                new People{Id=1,Name="sheeran",Age=22},
+                new People{Id=2,Name="Taylor",Age=23},
+                new People{Id=3,Name="Tom",Age=33}
+            };
+
+            List<People> lp = new List<People>();
+            lp.Add(new People { Id=1,Name="sheeran",Age=22});
+            Console.WriteLine(lp[0].Id);
+            foreach (var x in p)
+            {
+                Console.WriteLine(x.Name);
+            }
+            foreach (var y in lp)
+            {
+                Console.WriteLine(y.Id);
+            }
+           // List l;
+            ArrayList arr = new ArrayList();
+           // arr.Capacity = 4;
+            arr.Add(10010);
+            arr.Add(23423);
+            arr.Add(10000);
+            arr.Add(32012);
+            arr.Sort();
+          foreach(var t in arr){
+              Console.WriteLine(t);
+              //Console.WriteLine();
+          }
+         // arr.Clear();
+          Console.WriteLine(arr.Capacity);
+          Console.WriteLine(arr.Count);
+          Console.WriteLine(arr.IsFixedSize);
+          Console.WriteLine(arr.IsReadOnly);
+         // Console.WriteLine(arr);
+          Console.WriteLine(arr.Contains(10010));
+          Console.WriteLine(arr.IndexOf(1001));
+
+          LinkedList<int> list = new LinkedList<int>();
+            
+        }
+    }
+    public class People {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+}
+
+
