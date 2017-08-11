@@ -343,4 +343,16 @@ code :
     }
 }
 
+ Assembly assembly=Assembly.Load("MyAssembly");// 加载程序集
 
+   Type type=assembly.GetType("Example");
+
+   object obj=Activator.CreateInstance(type);
+
+   PropertyInfo propertyInfo=obj.GetProperty("Name");    //获取Name属性对象
+
+   var name=propertyInfo.GetValue(obj,null）;                //获取Name属性的值
+
+   PropertyInfo propertyInfo2=obj.GetProperty("Age");     //获取Age属性对象
+
+   propertyInfo.SetValue(obj,34,null);                              //把Age属性设置为34
