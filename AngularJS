@@ -101,3 +101,71 @@
       2.Model registered with $rootScope is global and i.e. shared between the controllers.
  
       3.Change of model in $rootScope will be reflected globally.
+      
+      //use of angualrjs ui-router
+      
+     Advance:  use ui-router need the server enviroment 
+     
+     such as : .NET API 
+     
+     Here is the code :
+     
+        Main.html :
+           <html>
+               <head>
+                  <title>UI-Route</title>
+                    <script src="/Scripts/angular.min.js"></script>
+                    <script src="/Scripts/angular-ui-router.js"></script>
+                    <script src="/Scripts/App.js"></script>
+               </head>
+               <body>
+                  <div ng-app="App">
+                     <h1>This is angularjs home page</h1>
+                     <div ui-view>
+
+                     </div>
+                  </div>
+               </body>
+            </html>
+            
+         Page1.html:
+            <div>
+            <h1>This is page1</h1>
+            </div>
+            <div ui-sref="Page2">
+               <a href="">Page2</a>
+            </div>
+         Page2.html:
+            <div>
+            <h1>This is page2</h1>
+            </div>
+            <div ui-sref="Page3">
+               <a href="">Page3</a>
+            </div>
+         Page3.html:
+              <div>
+               <h1>This is page3</h1>
+               </div>
+               <div ui-sref="Page1">
+                  <a href="">Page1</a>
+               </div>
+          App.js:
+              var myApp = angular.module("App",["ui.router"]);
+               myApp.config(function($stateProvider,$urlRouterProvider){
+                  $urlRouterProvider.when("","/Page1");
+                  $stateProvider
+                  .state("Page1",{
+                     url:'/Page1',
+                     templateUrl:'Page1.html'
+                  })
+                  .state("Page2",{
+                     url:'/Page2',
+                     templateUrl:'Page2.html'
+                  })
+                  .state("Page3",{
+                     url:'/Page3',
+                     templateUrl:'Page3.html'
+                  });
+               });
+
+
