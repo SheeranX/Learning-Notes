@@ -180,3 +180,8 @@ Array.prototype.slice()
 Array.prototype.filter()
 Array.prototype.indexOf()
 Array.prototype.concat()
+===== Angularjs 注入拦截器实现Loading 效果=========
+http://www.jb51.net/article/77092.htm
+
+
+
