@@ -6,7 +6,7 @@ app.controller('ctrl', ['$scope', function($scope){
 		alert(x);	
 	};
 	function forAddClass(y){
-		var ele = document.getElementById(y).getElementsByTagName("span");
+		var ele = document.getElementById(y).getElementsByTagName("span");//通过children[0] 得到span
 		//var firstChildEles = ele.firstChild;
 		ele.setAttribute("class","glyphicon glyphicon-remove");
 
