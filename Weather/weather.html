@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="weather.css">
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular-animate.min.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=1.3"></script>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+	<div class="container">
+		<div class="map">
+			<div class="locate">
+				Input Location:<input type="text" name="" id="txtlocate" ng-model="address"><br>
+				<button ng-click="searchByStationName()">Check</button>
+				<hr>
+				<!-- <p ng-model="longitude">{{longitude}}</p>
+			    <p ng-model="ladtitude">{{ladtitude}}</p> 
+ -->
+			</div>
+			<div id="getMap">
+				
+			</div>
+		</div>
+		<div class="weather">
+			<h1>FreeC<i class="fa fa-snowflake-o" aria-hidden="true"></i>de Camp</h1>
+			<h2>Weather App</h2>
+			<div class="weatherData">
+			    <p id="weather">{{w.weather}}</p>
+				<p id="location">{{weatherAdd}}</p>
+				<p id="temperature"><i class="fa fa-thermometer-4"></i>&nbsp; <span id="num">{{w.temper}}</span> &#176;C</p>
+				<p id="air">{{w.des}}</p>
+				<p id="icon"><img src="{{w.iconimg}}"></p>
+				<a ng-click="getMore()" ng-model="tip">{{tip}}</a>
+			</div>
+		</div>
+		<div class="details" ng-hide="hide" ng-model="hide">
+			<p class="data">Weather:<span>{{w.weather}}</span></p>
+			<p class="data">Temputer:<span>{{w.temper}}</span></p>
+			<p class="data">Description:<span>{{address}}</span></p>
+			<p class="data">Wind:<span></span>{{w.win}}</p>
+			<p class="data">Humidity:<span>{{w.hum}}</span></p>
+			<p class="data">Pressure:<span>{{w.press}}</span></p>
+		</div>
+	</div>
+	<div class="loading" ng-if="load">
+		<img src="loading.gif" alt="" width="70px" height="70px">
+	</div>
+</body>
+<script  src="weather.js"></script>
+</html>

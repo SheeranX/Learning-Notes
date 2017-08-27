@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+	</style>
+    <script src="http://api.map.baidu.com/components?ak=WUfZTjKPuZ2G5RmgD0Psejv6XOmIEQVQ"></script> 
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<title>地图展示</title>
+</head>
+<body ng-app="app" ng-controller="mapCtrl">
+	<div class="row">
+    <div class="col-lg-12">
+        <!-- 地址输入框 -->
+        <div class="form-group">
+            <label class="control-label">地址：</label>
+            <input class="form-control input-md" name="address" ng-model="address"/>
+        </div>
+        <!-- 百度地图显示区域 -->
+        <div class="form-group" id="container" style="width: 100%;height: 500px;"></div>
+    </div>
+</div>
+</body>
+</html>	
+<script type="text/javascript">
+	// // 百度地图API功能
+	// var map = new BMap.Map("allmap");    // 创建Map实例
+	// map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+	// map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+	// map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+	// map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+	var app = angular.module("app",[]);
+	app.controller('mapCtrl', ['$scope', function($scope){
+		//alert("--");
+	/**
+     * 初始化地址
+     */
+    $scope.address = null;
+    /**
+     * 初始化经度
+     */
+    $scope.longitude = 121.48;
+    /**
+     * 初始化纬度
+     */
+    $scope.latitude= 31.22;
+/**
+         * 初始化百度地图
+         */
+        $scope.initBap = function () {
+            $scope.map = new BMap.Map("container"); // 创建地图实例
+            $scope.map.centerAndZoom(new BMap.Point($scope.longitude, $scope.latitude), 18);  // 初始化地图，设置中心点坐标和地图级别
+            $scope.map.addControl(new BMap.NavigationControl());
+            $scope.map.addControl(new BMap.ScaleControl());
+            $scope.map.addControl(new BMap.OverviewMapControl());
+            $scope.map.enableScrollWheelZoom(true);
+            // 创建地址解析器实例
+            $scope.myGeo = new BMap.Geocoder();
+            /**
+             * 监听地图点击事件，获取点击处建筑物名称
+             */
+            $scope.map.addEventListener("click", function (e) {
+                var pt = e.point;
+                $scope.longitude = pt.lng;
+                $scope.latitude = pt.lat;
+                $scope.myGeo.getLocation(pt, function (rs) {
+                    var addComp = rs.addressComponents;
+                    /**
+                     * 将获取到的建筑名赋值给$scope.address
+                     */
+                    $scope.address = addComp.province != addComp.city ? addComp.province + addComp.city : addComp.city + addComp.district + addComp.street + addComp.streetNumber;
+                    /**
+                     * 通知angularjs更新视图
+                     */
+                    $scope.$digest();
+                });
+            });
+            /**
+             * 初始化查询配置
+             * @type {BMap.LocalSearch}
+             */
+            $scope.local = new BMap.LocalSearch($scope.map, {
+                renderOptions: {
+                    map: $scope.map,
+                    panel: "results",
+                    autoViewport: true,
+                    selectFirstResult: true
+                },
+                pageCapacity: 8
+            });
+            /**
+             * 监听地址改变事件，当地址输入框的值改变时
+             */
+            $scope.$watch('address', function () {
+                /**
+                 * 查询输入的地址并显示在地图上、调整地图视野
+                 */
+                $scope.local.search($scope.address);
+                /**
+                 * 将输入的地址解析为经纬度
+                 */
+                $scope.myGeo.getPoint($scope.address, function (point) {
+                    if (point) {
+                        /**
+                         * 将地址解析为经纬度并赋值给$scope.longitude和$scope.latitude
+                         */
+                        $scope.longitude = point.lng;
+                        $scope.latitude = point.lat;
+                    }
+                });
+            });
+        };
+}]);
+</script>

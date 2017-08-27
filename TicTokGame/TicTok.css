@@ -1,0 +1,26 @@
+*{
+	margin: 0px;
+	padding:0px;
+}
+body{
+	background: #ededed;
+}
+table{
+	width: 300px;
+	height: 300px;
+	background: #ededed;
+	border:none;
+	margin: 10% auto;
+	color: #fff;
+	font-size: 40px;
+	text-align: center;
+}
+td{
+	background: #2E8B57;
+	margin: 0px;
+	width: 100px;
+	height: 100px;
+}
+td:hover{
+	cursor: pointer;	
+}

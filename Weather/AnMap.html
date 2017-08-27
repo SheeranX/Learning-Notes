@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="http://api.map.baidu.com/components?ak=WUfZTjKPuZ2G5RmgD0Psejv6XOmIEQVQ"></script>  
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WUfZTjKPuZ2G5RmgD0Psejv6XOmIEQVQ"></script> 
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+<button type="button" ng-click='getAddr()'>点击定位</button><br>
+完整地址：<input type="text" ng-model="all"/><br>
+所处城市：<input type="text" ng-model="shi"/><br>
+所处区域：<input type="text" ng-model="qu"/><br>
+所处街道：<input type="text" ng-model="jiedao"/>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+        //获取地理位置信息  
+	$scope.getAddr = function() {  
+		var geolocation = new BMap.Geolocation();  
+		geolocation.getCurrentPosition(  
+			//获取位置信息成功  
+			function(position){  
+				if(this.getStatus() == BMAP_STATUS_SUCCESS){  
+					$scope.longitude = position.point.lng;  
+					$scope.latitude  = position.point.lat;  
+					// 根据坐标得到地址描述      
+					$scope.getGeo();  
+					   }        
+					},{  
+						// 指示浏览器获取高精度的位置，默认为false  
+						enableHighAccuracy: true,  
+						// 指定获取地理位置的超时时间，默认不限时，单位为毫秒  
+						// timeout: 5000,  
+						// 最长有效期(30S)，在重复获取地理位置时，此参数指定多久再次获取位置  
+						maximumAge: 30*1000  
+						});  
+					}; 
+
+					$scope.getGeo = function() {
+						var myGeo = new BMap.Geocoder();
+						// 根据坐标得到地址描述
+						myGeo.getLocation(new BMap.Point($scope.longitude,$scope.latitude),
+							function(result) {
+								if (result) {
+									$scope.geoaddress = {
+											'fulladdress' : result.addressComponents.city+ result.addressComponents.district+ result.addressComponents.street,
+											'city' : result.addressComponents.city,
+											'area' : result.addressComponents.district,
+											'street' : result.addressComponents.street,
+										};
+									$scope.all =  result.addressComponents.city+ result.addressComponents.district+ result.addressComponents.street;
+									$scope.shi = result.addressComponents.city;
+									$scope.qu = result.addressComponents.district;
+									$scope.jiedao = result.addressComponents.street;
+									alert(JSON.stringify($scope.all))
+									} else {
+										$scope.showAlert("定位失败,地址解析失败");
+									}
+								});
+							};
+});
+</script>
+</body>
+</html>
