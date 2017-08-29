@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Wiki</title>
-	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="Wiki.css">
+    <title>Wiki</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="Wiki.css">
+    <script src="angular.min.js"></script>
+    <script src="angular-ui-router.js"></script>
+    <script src="Wiki.js"></script>
 </head>
-<body>
-	<div class="box">
-		<p>Click here for a random article</p>
-		<div class="search">
-			<input type="text" id="txtSearch"/>
-			<p id="icon"><span class="fa fa-search"></span></p>		
-			<br>
-			<br>
-		</div>
-		<p>click Icon to search</p>
-	</div>
+<body ng-app="app" >
+    <div ui-view></div>
 </body>
 </html>
