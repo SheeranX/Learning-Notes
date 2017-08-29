@@ -1,13 +1,13 @@
 body{
 	background:#36648B;
 }
-p{
+.box{
 	color: #fff;
 	font-size:20px;
 	text-align:center;
 }
 .search{
-	border: 1px solid #ccc;
+	/*border: 1px solid #ccc;*/
 }
 #txtSearch{
 	border: 5px solid #fff;
@@ -23,15 +23,36 @@ p{
 	margin-left: -125px;
 	margin-top:30px;
 }
-span{
-	color:#fff;
-}
+
 #icon{
 	font-size: 30px;
 	font-weight: normal;
-    margin-left:350px;
-    margin-top:35px;
 }
-    #icon:hover {
-        cursor:pointer;
+span{
+	margin-left:350px;
+	color:#fff;
+	margin-top:35px;
+}
+#icon>span:hover {
+  cursor:pointer;
     }
+.result{
+	/*border: 1px solid #fff;*/
+	text-align: center;
+}
+.result>ul{
+	list-style: none;
+}
+.result>ul>li{
+	margin: 3px 0px;
+}
+a{
+	text-decoration: none;
+	color: #fff;
+}
+a:hover{
+	color: #ccc;
+}
+.random{
+	
+}

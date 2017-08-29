@@ -8,7 +8,23 @@
     <script src="angular-ui-router.js"></script>
     <script src="Wiki.js"></script>
 </head>
-<body ng-app="app" >
-    <div ui-view></div>
+<body ng-app="app" ng-controller="ctrl">
+   <div class="box">
+		<div class="search">
+			<input type="text" id="txtSearch" ng-model="txtContent"/>
+			<p id="icon"><span class="fa fa-search" ng-click="iconSearch()"></span></p>		
+			<br>
+		</div>
+	</div>
+	<div class="result">
+		<ul>
+			<li><a href=""> this is result this is result this is result</a></li>
+			<li><a href=""> this is result this is result this is result</a></li>
+			<li><a href=""> this is result this is result this is result</a></li>
+		</ul>
+	</div>
+	<div class="random">
+		
+	</div>
 </body>
 </html>
