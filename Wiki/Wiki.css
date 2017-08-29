@@ -29,4 +29,9 @@ span{
 #icon{
 	font-size: 30px;
 	font-weight: normal;
+    margin-left:350px;
+    margin-top:35px;
 }
+    #icon:hover {
+        cursor:pointer;
+    }
