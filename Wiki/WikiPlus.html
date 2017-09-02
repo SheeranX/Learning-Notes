@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wiki</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="Wiki.css">
+    <script src="angular.min.js"></script>
+    <script src="angular-ui-router.js"></script>
+    <script src="Wiki.js"></script>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+	<div class="box"> 
+		<div class="search">  
+			<input type="text" id="txtSearch" ng-model="txtContent"/> 
+			<p id="icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-search iconsearch" ng-click="iconSearch()"></span> | &nbsp;<a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><i class='fa fa-bullseye'></i></a></p> 
+			<br>  
+		</div> 
+	</div>
+	
+		<ul class="result" ng-repeat="x in result.query.search" ng-hide="resultShow"> 
+			<li>  
+			  <a href="http://en.wikipedia.org/?curid={{x.pageid}}" target="_blank">
+		          <h3>{{x.title}}</h3> 
+			       <div id="article" ng-bind-html="convert(x.snippet)"></div> 
+			   </a> 
+			</li>
+	        </ul> 
+		<div class="loading" ng-hide="load">  
+	              <img src="loading.gif"/>
+		</div>
+	</body>
+</html>
