@@ -2,7 +2,7 @@ body{background:#36648B;}
 .box{color: #fff;font-size:20px;text-align:center;}
 .search{ /*border: 1px solid #ccc;*/}
 #txtSearch{border: 5px solid #fff;border-radius: 20px;width: 250px;height: 30px;padding-left: 10px;background: #36648B;color:#fff;outline: none;position: absolute;left: 50%;margin-left: -125px;margin-top:30px;}
-#icon{font-size: 30px;font-weight: normal;margin-top: -20px;}
+#icon{font-size: 30px;font-weight: normal;margin-top: -25px;}
 #icon>span{margin-left:350px;color:#fff;margin-top:35px;}
 #icon>span:hover {cursor:pointer;}
 #icon>a{text-decoration:none;color: #fff;}
@@ -16,4 +16,8 @@ a:hover{color: #ccc;}
 .searchmatch{color:#ccc;}
 .loading{width:100%;height:100%;background:rgba(0,0,0,0.5);position:absolute;z-index:100;left:0;top:0;bottom:0;right:0;text-align:center;display:table-cell;vertical-align:middle;}
 .loading>img{position:absolute;vertical-align:middle;border-radius:5px;width:100px;height:100px;top:50%;left:50%;margin-left:-75px;margin-top:-40px;}
+#history{padding:0px;margin: 0px;font-size: 12px;}
+#history>a{color: #ededed;display: inline-block;margin-left: 2px;}
+#history>a:hover{color: #fff}
+
 

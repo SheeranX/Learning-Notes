@@ -9,23 +9,25 @@
 	<script src="Wiki.js"></script>
 </head>
 	<body ng-app="app" ng-controller="ctrl">
-		<div class="box"> 
-			<div class="search">  
-				<input type="text" id="txtSearch" ng-model="txtContent"/> 
-				<p id="icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-search iconsearch" ng-click="iconSearch()"></span> | &nbsp;<a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><i class='fa fa-bullseye'></i></a></p> 
-				<br>  
+		<div class="box">
+			<div class="search">
+				    <input type="text" id="txtSearch" ng-model="txtContent" ng-focus="history()" value="{{txtContent}}" />
+				    <p id="icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-search iconsearch" ng-click="iconSearch()"></span> | &nbsp;<a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><i class='fa fa-bullseye'></i></a></p>
+					<p id="history" ng-show="his">History:
+						<a href="#" ng-repeat="x in hisContent | limitTo:5">{{x}}</a>
+					</p>	
+					<br>
 			</div>
-		</div>
-		<!-- <div class="result" ng-repeat="x in result.query.search"> --> <!-- <h3>{{x.title}}</h3> --> <!-- <div id="article" ng-bind-html="convert(x.snippet)"> -->   <!--  {{x.snippet}}... -->   <!-- </div> --> 
+			</div>
 		<ul class="result" ng-repeat="x in result.query.search" ng-hide="resultShow">
 			<li><a href="http://en.wikipedia.org/?curid={{x.pageid}}" target="_blank">
 				<h3>{{x.title}}</h3>
 				<div id="article" ng-bind-html="convert(x.snippet)"></div>
 			    </a>
 			</li>
-		</ul> 
-		<div class="loading" ng-hide="load">  
-		    <img src="loading_anim.gif"/>
+		</ul>
+		<div class="loading" ng-hide="load">
+			<img src="loading_anim.gif"/>
 		</div>
 	</body>
 </html>
