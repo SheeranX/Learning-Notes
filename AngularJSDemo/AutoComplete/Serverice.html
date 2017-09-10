@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ServericeDemo</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+	<button ng-click="getPrivate()">button1</button> <br>
+	<button ng-click="getPublic()">button2</button>
+     <p>--------above is service -------</p>
+	<button ng-click="getHello()">btn1</button>
+	<button ng-click="btnValue()">btn2</button>
+	<script type="text/javascript">
+		var app = angular.module("app",[]);
+
+		app.controller('ctrl', ['$scope','myService',function($scope,myService,myFactory){
+			  $scope.getPrivate = function(){
+			  	alert(myService.getPrivate());
+			  };
+			  $scope.getPublic = function(){
+			  	 alert(myService.variable);
+			  };
+
+			  // $scope.getHello = function(){
+			  // 	 alert(myFactory.getHelloPrivate());
+			  // };
+			  // $scope.btnValue = function(){
+			  // 	alert(myFactory.btnValue);
+			  // };
+			
+		}]);
+
+		app.service('myService',function(){// service 
+			var privateValue = "I am Private";
+			this.variable = "This is public";
+			this.getPrivate = function(){
+				return privateValue;
+			};
+		});
+
+		
+	</script>
+</body>
+</html>
