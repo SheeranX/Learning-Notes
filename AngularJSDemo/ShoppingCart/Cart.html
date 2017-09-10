@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cart</title>
+	<link rel="stylesheet" type="text/css" href="Cart.css">
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="Cart.js"></script>
+</head>
+<body>
+   <div class="container" ng-app="app" ng-controller="ctrl">
+   	 <table>
+   	 	<tr>
+   	 		<th> <input type="checkbox" ng-model="all"></th>
+   	 		<th>Goods</th>
+   	 		<th>Number</th>
+   	 		<th>Price</th>
+   	 		<th>Total</th>
+   	 		<th></th>
+   	 	</tr>
+   	 	<tr>
+   	 		<td><input type="checkbox" ng-checked="all"></td>
+   	 		<td>
+   	 			<img src="taylor_1.jpg"/>
+   	 			<span>jkjjjk</span>
+   	 		</td>
+   	 		<td>
+   	 			<button>-</button><input type="number" name="" min="1" class="txtnumber" value="1"><button>+</button>
+   	 		</td>
+   	 		<td><span>1</span></td>
+   	 		<td><span>12</span></td>
+   	 		<td><a href="">delete</a></td>
+   	 	</tr>
+   	 	<tr>
+   	 		<td><input type="checkbox" ng-checked="all"></td>
+   	 		<td>
+   	 			<img src="taylor_1.jpg"/>
+   	 			<span>jkjkjkjjk</span>
+   	 		</td>
+   	 		<td>
+   	 			<button>-</button><input type="number" name="" min="1" class="txtnumber" value="1"><button>+</button>
+   	 		</td>
+   	 		<td><span>12</span></td>
+   	 		<td><span>12</span></td>
+   	 		<td><a href="">delete</a></td>
+   	 	</tr>
+   	 	<tr>
+   	 		<td><input type="checkbox" ng-checked="all"></td>
+   	 		<td>
+   	 			<img src="taylor_1.jpg"/>
+   	 			<span>jkjkjkjjkfhghgguihkbhj</span>
+   	 		</td>	
+   	 		<td>
+   	 			<button>-</button><input type="number" name="" min="1" class="txtnumber" value="1"><button>+</buttons>	
+   	 		</td>
+   	 		<td><span>1</span></td>
+   	 		<td><span>12</span></td>
+   	 		<td><a href="">delete</a></td>
+   	 	</tr>
+   	 	<tr class="footer">
+   	 		<td><input type="checkbox" name="" ng-model="all"></td>
+   	 		<td> <span>All</span> <a href="">delete</a></td>
+   	 		<td colspan="3">
+   	 			<p>Total:<span>36</span></p>
+   	 		</td>
+   	 		<td>
+   	 			<button>去结算</button>
+   	 		</td>
+   	 	</tr>
+   	 </table>
+   </div>
+</body>
+</html>
