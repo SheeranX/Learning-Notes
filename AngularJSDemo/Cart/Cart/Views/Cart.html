@@ -34,7 +34,7 @@
    	 		<td><input type="checkbox" name="" ng-model="all"></td>
    	 		<td> <span>All</span> <a href="">delete</a></td>
    	 		<td colspan="3">
-   	 			<p>Total:<span>{{total}}</span></p>
+   	 			<p>Total:<span ng-bind="total | number:1"></span></p>
    	 		</td>
    	 		<td>
    	 			<button>Check In</button>
