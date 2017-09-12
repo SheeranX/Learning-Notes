@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Index</title>
+    <script src="../Scripts/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="ctrl">
+        <ul ng-repeat="x in productInfo">
+            <li>{{x.Name}}</li>
+        </ul>
+        <hr />
+        <input type="text" name="product" ng-model="getinfo"/>
+        <input type="button" name="button" value="GET" ng-click="GetInfo()" />
+        <hr />
+        <p>{{info.Name}}</p>
+        <hr />
+        <ul ng-repeat="x in album">
+            <li>{{x.albumName}}</li>
+        </ul>
+        <p>{{}}</p> 
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("ctrl", ["$scope", "$http", function ($scope, $http) {
+            //alert("00");
+            $scope.getinfo = "";  
+            $scope.GetInfo = function () {
+                $http.get("/api/products/"+$scope.getinfo).then(function (response) {
+                    $scope.info = response.data;
+                });
+            };
+            $http.get("/api/products").then(function (response) {
+                $scope.productInfo = response.data;
+            });
+            $http.get("/api/Album").then(function (response) {
+                $scope.album = response.data;
+            });
+        }]);
+    </script>
+</body>
+</html>

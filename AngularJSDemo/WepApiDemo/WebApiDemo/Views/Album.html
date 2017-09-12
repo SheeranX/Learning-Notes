@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Album</title>
+    <script src="../Scripts/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="ctrl">
+        <ul ng-repeat="x in  album.ds">
+            <li>{{x.albumId+"-----"+x.albumName}}</li>
+        </ul>
+        <input type="text" name="getbyid" ng-model="getid"/>
+        <input type="button" name="button" value="get" ng-click="GetById()" />
+        <hr />
+        <p ng-repeat="y in info.ds">{{y.albumName}}</p>
+        <p>{{info}}</p>
+        <hr />
+        <input type="text" name="infoByname" ng-model="alname"/>
+        <input type="button" name="btninfo" value="get" ng-click="GetByName()"/>
+        <hr />
+        <p>{{alinfo}}</p>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("ctrl", ["$scope", "$http", function ($scope, $http) {
+            // alert("--");
+            $scope.getid = "";
+            $scope.alname = "";
+            $http.get("/api/Album").then(function (response) {
+                $scope.album = response.data;
+            });
+            $scope.GetById = function () {
+                $http.post("/api/Album/" + $scope.getid).then(function (response) {
+                    $scope.info = response.data;
+                });
+            }
+            $scope.GetByName = function () {
+                $http.get("/api/Album/",$scope.alname).then(function (response) {
+                    $scope.alinfo = response.data.ds;
+                });
+            }
+        }]);
+    </script>
+</body>
+</html>

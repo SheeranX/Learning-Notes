@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cart</title>
+	<link rel="stylesheet" type="text/css" href="Cart.css">
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="Cart.js"></script>
+</head>
+<body>
+   <div class="container" ng-app="app" ng-controller="ctrl">
+   	 <table>
+   	 	<tr>
+   	 		<th> <input type="checkbox" ng-model="all"></th>
+   	 		<th>Goods</th>
+   	 		<th>Number</th>
+   	 		<th>Price</th>
+   	 		<th>Total</th>
+   	 		<th></th>
+   	 	</tr>
+   	 	<tr ng-repeat="x in goods">
+   	 		<td><input type="checkbox" ng-checked="all"></td>
+   	 		<td>
+                <img src="{{x.ImgUrl}}" />
+   	 			<span>{{x.Description}}</span>
+   	 		</td>
+   	 		<td>
+   	 			<button ng-click="minus($index)">-</button><input type="number" min="1" class="txtnumber" ng-model="x.Quantity" id="x.Id"><button ng-click="plus($index)">+</button>
+   	 		</td>
+   	 		<td><span>{{x.Price}}</span></td>
+   	 		<td><span>{{x.Price*x.Quantity |number:1}}</span></td>
+   	 		<td><a href="">delete</a></td>
+   	 	</tr>
+   	 	<tr class="footer">
+   	 		<td><input type="checkbox" name="" ng-model="all"></td>
+   	 		<td> <span>All</span> <a href="">delete</a></td>
+   	 		<td colspan="3">
+   	 			<p>Total:<span>{{total}}</span></p>
+   	 		</td>
+   	 		<td>
+   	 			<button>Check In</button>
+   	 		</td>
+   	 	</tr>
+   	 </table>
+   </div>
+</body>
+</html>

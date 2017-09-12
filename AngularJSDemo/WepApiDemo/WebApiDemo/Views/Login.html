@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login</title>
+    <script src="../Scripts/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="ctrl">
+        <form ng-submit="processForm()">
+            username: <input type="text" name="username" ng-model="formData.Username"/> <br />
+            password: <input type="text" name="password" ng-model="formData.Password"/> <br />
+            <input type="submit" name="submit" value="button" />
+            <hr />
+            <p>{{info}}</p>
+            <p>{{formData}}</p>
+        </form>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("ctrl", ["$scope", "$http", function ($scope, $http) {
+            $scope.formData = {"Username":"sheeran","Password":"111111"};
+            $scope.processForm = function () {
+                //alert("--");
+                $http.post("/api/Login/PostLogin",$scope.formData).then(function (response) {
+                    $scope.info = response.data;
+                });
+            };
+        }]);
+    </script>
+</body>
+</html>

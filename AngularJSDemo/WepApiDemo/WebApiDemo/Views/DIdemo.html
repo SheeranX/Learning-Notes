@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DIdemo</title>
+    <script src="../Scripts/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="CalController">
+        <input type="text" name="number" ng-model="number" />
+        <input type="button" name="button" value="submit" ng-click="square()" />
+        <p>{{result}}</p>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.value("defaultInput",5);
+        app.factory("MathService", function () {
+            var factory = {};
+            factory.multiply = function (a, b) {
+                return a * b;
+            }
+            return factory;
+        });
+        app.service("CalService", function (MathService) {
+            this.square = function (a) {
+                return MathService.multiply(a,a);
+            }
+        });
+        app.controller("CalController", function ($scope, CalService, defaultInput) {
+            $scope.number = defaultInput;
+            $scope.result = CalService.square($scope.number);
+
+            $scope.square = function () {
+                //alert("---");
+                $scope.result = CalService.square($scope.number);
+            }
+        });
+    </script>
+</body>
+</html>
