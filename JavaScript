@@ -1,0 +1,8 @@
+----Attention: this is the senior js design----
+  this is about js inheritance: 
+    the core is prototype: 
+      1. use constructor function 
+      2. consistence inheritance 
+      3. prototype inheritance
+      4. parasitic inheritance
+      5. parasitic consistence inheritance.
