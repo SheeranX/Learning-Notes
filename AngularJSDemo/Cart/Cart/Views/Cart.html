@@ -18,7 +18,7 @@
    	 		<th></th>
    	 	</tr>
    	 	<tr ng-repeat="x in goods">
-   	 		<td><input type="checkbox" ng-checked="all"></td>
+   	 		<td><input type="checkbox" ng-checked="all" ng-click="selected(no,x.id)" id="{{x.Id}}" ng-model="no"></td>
    	 		<td>
                 <img src="{{x.ImgUrl}}" />
    	 			<span>{{x.Description}}</span>
@@ -28,11 +28,11 @@
    	 		</td>
    	 		<td><span>{{x.Price}}</span></td>
    	 		<td><span>{{x.Price*x.Quantity |number:1}}</span></td>
-   	 		<td><a href="">delete</a></td>
+   	 		<td><a href="#" ng-click="delItem($index)">delete</a></td>
    	 	</tr>
    	 	<tr class="footer">
    	 		<td><input type="checkbox" name="" ng-model="all"></td>
-   	 		<td> <span>All</span> <a href="">delete</a></td>
+   	 		<td> <span>All</span> <a href="#" ng-click="delAll()">delete</a></td>
    	 		<td colspan="3">
    	 			<p>Total:<span ng-bind="total | number:1"></span></p>
    	 		</td>
