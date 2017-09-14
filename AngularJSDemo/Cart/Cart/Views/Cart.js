@@ -3,19 +3,16 @@ angular.module('app', [])
 	   .controller('ctrl', ['$scope', '$http', function ($scope, $http) {
 	       $scope.goods = {};
 	       $scope.chooseArr = [];
-	   	  //$scope.goods=[
-	   	  //	{id:'g0001',name:"Sheeran",num:2,imgUrl:'taylor_1.jpg',description:'the singer song-writer',price:12},
-	   	  //	{id:'g0002',name:"Taylor",num:5,imgUrl:'taylor_1.jpg',description:'my favorite female singer',price:13},
-	   	  //	{id:'g0003',name:"Coldplay",num:4,imgUrl:'taylor_1.jpg',description:'Not a band but artist',price:14}
-	       //];
+	       $scope.total = 0;
+	       var flag = [];
 
 	       $http.get("/api/Cart").then(function (res) {
 	           $scope.goods = res.data;
 	           getTotal();
 	       });
 
-	       $scope.total = 0;
 	       var getTotal = function () {
+	           $scope.total = 0;
 	           for (var i = 0; i < $scope.goods.length; i++) {
 	               var item = $scope.goods[i];
 	               $scope.total += item.Quantity * item.Price;
@@ -23,8 +20,22 @@ angular.module('app', [])
 	           }
 	       };
 
+	       $scope.setFlag = function () {
+	           $scope.chooseArr = [];
+	           if ($scope.all) {
+	               flag = false;
+	               getTotal();
+	           }
+
+	           else {
+	               flag = true;
+	               $scope.total = 0;
+	           }
+	               
+	       }
+
 	       $scope.plus = function (index) {
-	           $scope.total = 0;
+	          // $scope.total = 0;
 	           $scope.goods[index].Quantity++;
 	           getTotal();
           };
@@ -33,7 +44,7 @@ angular.module('app', [])
 	           if ($scope.goods[index].Quantity < 2)
 	               return;
 	           else {
-	               $scope.total = 0;
+	             //  $scope.total = 0;
 	               $scope.goods[index].Quantity--;
 	               getTotal();
 	           }
@@ -52,24 +63,48 @@ angular.module('app', [])
 	           }
 	       };
 
-	       $scope.selected = function (no, id) {
-	           if (no)
-	               forArr(id);
-	           else {
-	               $scope.chooseArr.remove(id);
+	       $scope.selected = function (status, index) {
+	           if (!flag)
+	               return;
+	           if (status) {
+	               forArr(index);
+	               calTotal($scope.chooseArr);
 	           }
+
+	           else if (!status) {
+	               if ($scope.chooseArr.length == 0)
+	                   getTotal();
+	               else {
+	                   $scope.chooseArr.remove(index);
+	                   calTotal($scope.chooseArr);
+	               }
+
+	           }
+	           else
+	               return;
 	       };
 
-	       function forArr(id) {
-	           angular.forEach($scope.chooseArr, function (item, index, array) {
-	               if (item.Id == id)
+	       function calTotal(arr) {
+	           $scope.total = 0;
+	           for (var i = 0; i < arr.length; i++) {
+	               $scope.total += ($scope.goods[arr[i]].Price) * ($scope.goods[arr[i]].Quantity);
+	           }
+	       }
+
+	       function forArr(index) {
+	           if ($scope.chooseArr.length > 0) {
+	               if ($scope.chooseArr.indexOf(index) > -1)
 	                   return;
 	               else
-	               {
-	                   $scope.chooseArr.push(id);
-	               }
-	           });
+	                   $scope.chooseArr.push(index);
+	           }
+	           else {
+	               $scope.chooseArr.push(index);
+	           }
+	           
 	       }
+
+
 
 	       Array.prototype.remove = function (val) {
 	           var index = this.indexOf(val);

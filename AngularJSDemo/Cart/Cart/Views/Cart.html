@@ -10,7 +10,7 @@
    <div class="container" ng-app="app" ng-controller="ctrl">
    	 <table>
    	 	<tr>
-   	 		<th> <input type="checkbox" ng-model="all"></th>
+   	 		<th> <input type="checkbox" ng-model="all" ng-click="setFlag()"></th>
    	 		<th>Goods</th>
    	 		<th>Number</th>
    	 		<th>Price</th>
@@ -18,7 +18,7 @@
    	 		<th></th>
    	 	</tr>
    	 	<tr ng-repeat="x in goods">
-   	 		<td><input type="checkbox" ng-checked="all" ng-click="selected(no,x.id)" id="{{x.Id}}" ng-model="no"></td>
+   	 		<td><input type="checkbox" ng-checked="all" ng-click="selected(status,$index)" id="{{x.Id}}" ng-model="status" ></td>
    	 		<td>
                 <img src="{{x.ImgUrl}}" />
    	 			<span>{{x.Description}}</span>
@@ -31,7 +31,7 @@
    	 		<td><a href="#" ng-click="delItem($index)">delete</a></td>
    	 	</tr>
    	 	<tr class="footer">
-   	 		<td><input type="checkbox" name="" ng-model="all"></td>
+   	 		<td><input type="checkbox" name="" ng-model="all" ng-click="setFlag()"></td>
    	 		<td> <span>All</span> <a href="#" ng-click="delAll()">delete</a></td>
    	 		<td colspan="3">
    	 			<p>Total:<span ng-bind="total | number:1"></span></p>
