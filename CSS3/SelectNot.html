@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+		ul>li>img{
+			width: 100px;
+			height: 100px;
+		}
+		ul{
+			width: 600px;
+			margin: 20px auto;
+			letter-spacing: -4px;
+			word-spacing: -4px;
+			font-size: 0px;
+		}
+		li{
+			font-size: 16px;
+			letter-spacing: normal;
+			word-spacing: normal;
+			display: inline-block;
+			*display: inline-block;
+			zoom:1;
+			list-style: none outside none;
+			margin: 15px;
+		}
+		.gallery li:nth-child(2){
+			-webkit-filter:grayscale(1);
+		}
+		.gallery li:nth-child(3){
+			-webkit-filter:sepia(1);
+		}
+		.gallery li:nth-child(4){
+			-webkit-filter:saturate(0.5);
+		}
+		.gallery li:nth-child(5){
+			-webkit-filter:hue-rotate(90deg);
+		}
+		.gallery li:nth-child(6){
+			-webkit-filter:invert(1);
+		}
+		.gallery:hover li:not(:hover){
+			-webkit-filter:blur(2px) grayscale(1);
+			opacity: .7;
+		}
+
+	</style>
+<ul class="gallery">
+	<li><img src="sanjii.jpeg" alt=""></li>
+	<li><img src="sanjii.jpeg" alt=""></li>
+	<li><img src="sanjii.jpeg" alt=""></li>
+	<li><img src="sanjii.jpeg" alt=""></li>
+	<li><img src="sanjii.jpeg" alt=""></li>
+	<li><img src="sanjii.jpeg" alt=""></li>
+</ul>
+</body>
+</html>
