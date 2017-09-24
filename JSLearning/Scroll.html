@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<style type="text/css">
+		#myDiv{
+			border: 1px solid #000;
+			width: 100%;
+			height: 200px;
+		}
+	</style>
+	<div id="myDiv"></div>
+</body>
+<script type="text/javascript">
+
+	var EventUtil = {
+		addHandler:function(element,type,handler){
+			if(element.addListener)
+				element.addListener(type,handler,false);
+			else if(element.attachEvent)
+				element.attachEvent("on"+type,handler);
+			else
+				element["on"+type] = handler;
+		},
+		removeHandler:function(element,type,handler){
+			if(element.removeEventListener)
+				element.removeEventListener(type,handler,false);
+			else if(element.detachEvent)
+			    element.detachEvent("on"+type,handler);
+			else
+				element["on"+type] = null;
+		},
+		getEvent:function(event){
+			return event?event:window.event;
+		},
+		getTarget:function(event){
+			return event.target||event.srcElement;
+		},
+		preventDefault:function(event){
+			if(event.preventDefault)
+				event.preventDefault();
+			else
+				event.returnValue = false;
+		},
+		stopPropagation:function(event){
+			if(event.stopPropagation)
+				event.stopPropagation();
+			else
+				event.cancelBubble();
+		}
+	};
+
+	var div = document.getElementById("myDiv");
+	EventUtil.addHandler(div,"click",function(event){
+		event = EventUtil.getEvent(event);
+
+		var pageX = event.pageX,
+		    pageY = event.pageY;
+
+		if(pageX==undefined){
+			pageX = event.clientX+(document.body.scrollLeft||document.documentElement.scrollLeft);
+		}
+		if(pageY == undefined){
+			pageY = event.clientY+(document.body.scrollTop||document.documentElement.scrollTop);
+		}
+		alert("Page coordinates:"+pageX+","+pageY);
+	});
+
+
+</script>
+</html>
