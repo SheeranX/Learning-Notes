@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas</title>
+</head>
+<body>
+	<canvas id="drawing" width="200px" height="100px"></canvas>
+	<canvas id="clock" width="200px" height="200px"></canvas>
+	<script type="text/javascript">
+		var drawing = document.getElementById("drawing");
+
+		var clock = document.getElementById("clock");
+
+		if(drawing.getContext){
+			var context = drawing.getContext("2d");
+			//context.strokeStyle = "red";
+			context.fillStyle = "#0000ff";
+			context.strokeStyle = "#ccc";
+			context.fillRect(10,10,50,50); 
+			context.strokeRect(10,10,50,50);
+
+
+			context.fillStyle = "rgba(0,0,255,0.5)";
+			context.fillRect(30,30,50,50);
+			context.strokeStyle = "#000";
+			context.strokeRect(30,30,50,50);
+
+			context.clearRect(40,40,20,20);
+		}
+
+		if(clock.getContext){
+			var context = clock.getContext('2d');
+
+			context.beginPath();
+			context.arc(100,100,99,2*Math.PI,false);
+
+			context.moveTo(194,100);
+			context.arc(100,100,94,0,2*Math.PI,false);
+
+			context.moveTo(100,100);
+			context.lineTo(100,30);
+
+			context.moveTo(100,100);
+			context.lineTo(50,100);
+
+			context.stroke();
+
+			context.font = "bold 14px Aria";
+			context.textAlign = "center";
+			context.textBaseline = "middle";
+			context.fillText("12",100,20);
+		}
+
+
+
+	</script>
+</body>
+</html>
