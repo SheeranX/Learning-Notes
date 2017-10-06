@@ -10,13 +10,19 @@
 	border: 1px solid #ccc;
 	box-shadow: 1px 1px 1px #000;
 }
+.box span:hover{
+	cursor: pointer;
+}
+.box i:hover{
+	cursor: pointer;
+}
 .tools{
 	border-bottom: 1px solid #000;
 }
 .toolsList>li{
 	float: left;
 	list-style: none;
-	margin-left: 10px;
+	margin-left: 15px;
 	margin-bottom: 5px;
 }
 .content textarea{
