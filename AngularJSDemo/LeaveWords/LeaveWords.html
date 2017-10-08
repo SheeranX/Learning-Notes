@@ -6,10 +6,10 @@
 	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 <body>
-	<div class="box">
+	<div class="box" ng-app="app" ng-controller='ctrl'>
 		<form>	
 		<div class="tools">
-			<ul class="toolsList">
+			<ul class="toolsList" id="ltTools">
 				<li><i class="fa fa-bold" aria-hidden="true"></i></li>
 				<li><i class="fa fa-italic" aria-hidden="true"></i></li>
 				<li><i class="fa fa-underline" aria-hidden="true"></i></li>
@@ -43,17 +43,18 @@
 				<li>
 					<i class="fa fa-smile-o" aria-hidden="true"></i>
 				</li>
-				<li><span></span></li>
-				<li></li>
 			</ul>
 		</div>
 		<div class="content">
-			<textarea></textarea>
+			<textarea required=""></textarea>
 		</div>
 		<div class="footer">
 			<input type="submit" value="submit">
 		</div>
 		</form>
 	</div>
+	<div class="reminder">Bold</div>
 </body>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script type="text/javascript" src="LeaveWords.js"></script>
 </html>
