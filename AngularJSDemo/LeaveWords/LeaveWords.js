@@ -1,8 +1,9 @@
 var app = angular.module("app",[]);
 app.controller('ctrl',function($scope){
-	//var ul = document.getElementById("ltTools");
-	var li = document.getElementsByTagName('li');
-	//var arrli = ul.children;
+	var ul = document.getElementById("ltTools");
+	//var li = document.getElementsByTagName('li');
+	var arrli = ul.children;
+	var flag  = true;
 	//console.log(ul.children);
 	
 	
@@ -21,15 +22,16 @@ app.controller('ctrl',function($scope){
 			}
 		};
 
-	Remider(li);
-	clickEvent(li);
+	Remider(arrli);
+	clickEvent(arrli);
 	function clickEvent(arr){
 		for(var i = 0;i<arr.length;i++){
 			var a = arr[i];
 			a.index = i;
 
 			EventUtil.addHandler(a,'click',function(){
-				removeEle(this,this.index);
+				removeEle(this);
+				toggle(this);
 				//alert("--");
 			});
 		}
@@ -104,10 +106,17 @@ app.controller('ctrl',function($scope){
 
 	function removeEle(ele){
 		var e = document.getElementsByClassName("reminder")[0];
-		//ele.removeChild(e);
-		
+		ele.removeChild(e);
 	}
 
-	
+	function toggle(ele){
+		console.log(ele.childNodes[3]);
+		if(ele.childNodes[3].style.display=='block')
+			ele.childNodes[3].style.display ='none';
+		else
+			ele.childNodes[3].style.display ='block';
+
+
+	}
 	//console.log(ul);
 });
