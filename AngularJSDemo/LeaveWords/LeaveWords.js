@@ -6,6 +6,7 @@ app.controller('ctrl',function($scope){
 	//var li = document.getElementsByTagName('li');
 	var arrli = ul.children;
 	var flag  = true;
+	//document.execCommand("bold");
 	//console.log(ul.children);
 	
 	
@@ -28,9 +29,8 @@ app.controller('ctrl',function($scope){
 
 	Remider(arrli);
 	clickEvent(arrli);
-	EventUtil.addHandler(txt,'mouseup',function(event){
-		
-	});
+
+	
 
 	function clickEvent(arr){
 		for(var i = 0;i<arr.length;i++){
@@ -38,7 +38,13 @@ app.controller('ctrl',function($scope){
 			a.index = i;
 
 			EventUtil.addHandler(a,'click',function(){
-				removeEle(this);
+				try{
+					removeEle(this);
+					toggle(this);
+				}catch(e){
+					console.log(e);
+				}
+				
 			});
 		}
 	}
@@ -93,7 +99,11 @@ app.controller('ctrl',function($scope){
 			});
 
 			EventUtil.addHandler(a,'mouseout',function(){
-				removeEle(this,this.index);
+				try{
+					removeEle(this,this.index);
+				}catch(e){
+					console.log(e);
+				}
 			});
 
 			// a.onmouseover = function(){
@@ -123,41 +133,43 @@ app.controller('ctrl',function($scope){
 			ele.childNodes[3].style.display ='block';
 	}
 
-	// function getTxt(){
+	function getTxt(){
 
-	// 	var userSelection;
- //        if (window.getSelection) { //现代浏览器
- //            userSelection = window.getSelection();
- //        } else if (document.selection) { //IE浏览器 考虑到Opera，应该放在后面
- //            userSelection = document.selection.createRange();
- //        }
+		var userSelection;
+        if (window.getSelection) { //现代浏览器
+            userSelection = window.getSelection();
+        } else if (document.selection) { //IE浏览器 考虑到Opera，应该放在后面
+            userSelection = document.selection.createRange();
+        }
 
- //        var getRangeIndex = function(selectionObject) {
- //            if (window.getSelection)
- //                return [txt.selectionStart, txt.selectionEnd];
- //            else { // 较老版本Safari!
- //                var range               = document.selection.createRange();             //对选择的文字create Range
- //                // var selectText          = range.text;                                //选中的文字
- //                var selectTextLength    = range.text.length;                            //选中文字长度
- //                txt.select();                                                      //textarea全选
- //                //StartToStart、StartToEnd、EndToStart、EndToEnd
- //                range.setEndPoint("StartToStart", document.selection.createRange());    //指针移动到选中文字开始
+        var getRangeIndex = function(selectionObject) {
+            if (window.getSelection)
+                return [txt.selectionStart, txt.selectionEnd];
+            else { // 较老版本Safari!
+                var range               = document.selection.createRange();             //对选择的文字create Range
+                // var selectText          = range.text;                                //选中的文字
+                var selectTextLength    = range.text.length;                            //选中文字长度
+                txt.select();                                                      //textarea全选
+                //StartToStart、StartToEnd、EndToStart、EndToEnd
+                range.setEndPoint("StartToStart", document.selection.createRange());    //指针移动到选中文字开始
 
- //                var selectTextPosition  = range.text.length;                            //选中文字的结束位置
- //                range.collapse(false);                                                  //将插入点移动到当前范围的开始
- //                range.moveEnd("character", -selectTextLength);   //更改范围的结束位置，减去长度，字符开始位置，character不能改
- //                range.moveEnd("character", selectTextLength);   //再更改范围的结束位置，到字符结束位置
- //                range.select();                                                         //然后选中字符
+                var selectTextPosition  = range.text.length;                            //选中文字的结束位置
+                range.collapse(false);                                                  //将插入点移动到当前范围的开始
+                range.moveEnd("character", -selectTextLength);   //更改范围的结束位置，减去长度，字符开始位置，character不能改
+                range.moveEnd("character", selectTextLength);   //再更改范围的结束位置，到字符结束位置
+                range.select();                                                         //然后选中字符
 
- //                //返回字符的开始和结束位置
- //                return [selectTextPosition - selectTextLength, selectTextPosition];
- //            }
- //        }
+                //返回字符的开始和结束位置
+                return [selectTextPosition - selectTextLength, selectTextPosition];
+            }
+        }
 
- //        var rangeIndex = getRangeIndex(userSelection);
- //        selectionStart = rangeIndex[0];
- //        selectionEnd   = rangeIndex[1];
-	// }
+        var rangeIndex = getRangeIndex(userSelection);
+        selectionStart = rangeIndex[0];
+        selectionEnd   = rangeIndex[1];
+
+        return rangeIndex;
+	}
 
 
 	//console.log(ul);

@@ -42,12 +42,16 @@
 	height: 300px;
 	padding-left: 10px;
 	padding-top: 5px;
-	box-shadow: inset 2px 2px 2px #ededed;
+	box-shadow: inset 2px 2px 10px #ccc;
+	border-bottom: 1px solid #ccc;
+	font-size: 14px;
+	font-weight: 100;
 }
 .content #txtbox:focus{
 	outline: none;
-	box-shadow: inset 1px 2px 10px #ccc;
-	font-size:18px;
+	box-shadow: inset 1px 2px 10px #bbb;
+	font-size:14px;
+	font-weight: 100;
 }
 .footer input{
 	width: 80px;
