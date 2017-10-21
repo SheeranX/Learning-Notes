@@ -7,37 +7,37 @@
 	<script type="text/javascript" src="Cart.js"></script>
 </head>
 <body>
-   <div class="container" ng-app="app" ng-controller="ctrl">
+   <div class="container" ng-app="app" ng-controller="ctrl as vm">
    	 <table>
    	 	<tr>
-   	 		<th> <input type="checkbox" ng-model="all"></th>
+   	 		<th><input type="checkbox" ng-model="vm.all"></th>
    	 		<th>Goods</th>
    	 		<th>Number</th>
    	 		<th>Price</th>
    	 		<th>Total</th>
    	 		<th></th>
    	 	</tr>
-   	 	<tr ng-repeat="x in goods">
-   	 		<td><input type="checkbox" ng-checked="all"></td>
+   	 	<tr ng-repeat="x in vm.goods">
+   	 		<td><input type="checkbox" ng-checked="vm.all" ng-click="vm.selectItems($index)"></td>
    	 		<td>
    	 			<img src="{{x.imgUrl}}"/>
    	 			<span>{{x.description}}</span>
    	 		</td>
    	 		<td>
-   	 			<button ng-click="minus(x.id)">-</button><input type="number" min="1" class="txtnumber" value="{{x.num}}" id="x.id"><button ng-click="plus(x.id)">+</button>
+   	 			<button ng-click="vm.minus(x.id)">-</button><input type="number" min="1" class="txtnumber" ng-model="x.num" id="{{x.id}}" ><button ng-click="vm.plus(x.id)">+</button>
    	 		</td>
    	 		<td><span>{{x.price}}</span></td>
    	 		<td><span>{{x.price*x.num}}</span></td>
-   	 		<td><a href="">delete</a></td>
+   	 		<td><a href="" ng-click="vm.delItems($index)">delete</a></td>
    	 	</tr>
    	 	<tr class="footer">
-   	 		<td><input type="checkbox" name="" ng-model="all"></td>
-   	 		<td> <span>All</span> <a href="">delete</a></td>
+   	 		<td><input type="checkbox" name="" ng-model="vm.all"></td>
+   	 		<td> <span>All</span> <a href="" ng-click="vm.delSelectedItems()">delete</a></td>
    	 		<td colspan="3">
-   	 			<p>Total:<span>{{total}}</span></p>
+   	 			<p>Total:<span>{{vm.total()}}</span></p>
    	 		</td>
    	 		<td>
-   	 			<button>去结算</button>
+   	 			<button ng-click="vm.pay()">去结算</button>
    	 		</td>
    	 	</tr>
    	 </table>
