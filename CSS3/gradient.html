@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gradient</title>
+</head>
+<body>
+	<style type="text/css">
+		div{
+			width: 400px;
+			height: 150px;
+			border: 1px solid #666;
+			line-height: 150px;
+			text-align: center;
+			font-weight: 900;
+			font-size: 30px;
+			color: #fff;
+			margin: 10px auto;
+		}
+		.toTop{
+			background-image: -webkit-linear-gradient(to top,orange,green);
+			background-image: linear-gradient(to top,orange,green);
+		}
+		.toTop-deg{
+			background-image: -webkit-linear-gradient(0deg,blue,yellow);
+			background-image: linear-gradient(0deg,blue,yellow);
+		}
+		.toTop-deg2{
+			background-image: -webkit-linear-gradient(360deg,grey,black);
+			background-image: linear-gradient(360px,grey,black);
+		}
+		.toTop-deg3{
+			background-image: -webkit-linear-gradient(-360deg,grey,black);
+			background-image: linear-gradient(-360deg,grey,black);
+		}
+		.topTopRight{
+			background-image: -webkit-linear-gradient(to top right,orange,yellow);
+			background-image: linear-gradient(to top right,orange,red);
+		}
+
+	</style>
+	<div class="toTop">"top"</div>
+	<div class="toTop-deg">0 deg</div>
+	<div class="toTop-deg2">360 deg</div>
+	<div class="toTop-deg3">-360 deg</div>
+	<div class="topTopRight">to top right</div>
+</body>
+</html>
