@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Sort</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+</head>
+<body>
+	<style type="text/css">
+		body{
+			font-size: 12px;
+		}
+		ul{
+			list-style: none;
+			width: 400px;
+			margin: 0px;
+			padding: 0px;
+		}
+		ul li{
+			float: left;
+			padding: 5px 0px;
+		}
+		ul .bold{
+			font-weight: bold;
+			cursor: pointer;
+		}
+		ul li span{
+			width: 52px;
+			float: left;
+			padding: 0px 10px;
+		}
+		ul .focus{
+			background:#ccc;
+		}
+	</style>
+	<div ng-controller="ctrl">
+		<div><input type="text" id="txtkey" placeholder="please input key word" ng-model="key"></div>
+	<ul>
+		<li ng-class="{{bold}}">
+			<span>NO</span>
+			<span>Name</span>
+			<span>Gender</span>
+			<span>Age</span>
+			<span>Score</span>
+		</li>
+		<li ng-repeat="stu in data | filter:{name:key}">
+			<span>{{$index+1}}</span>
+			<span>{{stu.name}}</span>
+			<span>{{stu.sex}}</span>
+			<span>{{stu.age}}</span>
+			<span>{{stu.score}}</span>
+		</li>
+	</ul>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module('app',[]);
+		app.controller('ctrl', ['$scope', function($scope){
+			$scope.bold = 'bold';
+			$scope.key = '';
+			$scope.data = [
+				{name:'zhang',sex:'famale',age:24,score:95},
+				{name:'liqing',sex:'female',age:26,score:87},
+				{name:'lixiao',sex:'male',age:28,score:86},
+				{name:'chenzhong',sex:'male',age:23,score:78}
+			];
+		}]);
+	</script>
+</body>
+</html>
