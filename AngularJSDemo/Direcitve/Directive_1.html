@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Component</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+</head>
+<body>
+	<div>
+		<tplCache></tplCache>
+		<tplTemp></tplTemp>
+		<tplScript></tplScript>
+		<hello></hello>
+	</div>	
+</body>
+<script type="text/ng-template" id="tpl.html">
+		<h3>keep looking don't settle</h3>
+</script>
+<script type="text/javascript">
+	angular.module('app', [])
+	.run(function($templateCache){
+		$templateCache.put('cache','<h1>Here is the crazy ones</h1>');
+		console.log($templateCache.get('cache'));
+	})
+
+	.directive('tplTemp',function(){
+		return {
+			restrict:'EAC',
+			templateUrl:'tpl.html'
+		};
+	})
+
+	.directive('tplScript',function(){
+		return {
+			restrict:'EAC',
+			templateUrl:'tpl.html',
+			replace:true
+		};
+	})
+
+	.directive('tplCache',function($templateCache){
+		return {
+			restrict:'EAC',
+			template:$templateCache.get('cache')
+		};
+	})
+
+	.directive('hello',function(){
+		return {
+			restrict:'EAC',
+			template:'<h1>hello world</h1>'
+		};
+	});
+
+</script>
+
+</html>

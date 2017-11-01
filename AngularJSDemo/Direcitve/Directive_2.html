@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Directive</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+</head>
+<body>
+	<div>
+		<tplScript>{{txt}}</tplScript>
+	</div>
+	<script type="text/ng-template" id='tpl.html'>
+		<div>
+			<input type="text" name="" ng-model="txt">
+			<p ng-transclude></p>
+		</div>
+	</script>
+	<script type="text/javascript">
+		angular.module('app',[])
+
+		.directive('tplScript',function(){
+			return{
+				restrict:'EAC',
+				templateUrl:'tpl.html',
+				transclude:true
+			};
+		});
+	</script>
+</body>
+</html>
