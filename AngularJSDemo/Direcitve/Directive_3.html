@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Directive</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+	<script type="text/ng-template" id="tpl">
+		<button>click</button>
+	</script>
+</head>
+<body>
+	<div>
+		<ts-Tplscript></ts-Tplscript>
+		{{content}}
+	</div>
+	
+	<script>
+		var app = angular.module('app',[]);
+		app.directive('tsTplscript',function(){
+			return {
+				restrict:'EAC',
+				templateUrl:'tpl',
+				replace:true,
+				link:function(scope,iEle,iAttrs){
+					iEle.bind('click',function(){
+						
+							scope.$apply(function(){
+								scope.content = 'This is the content';
+							})
+							iAttrs.$$element[0].disabled = true;
+						
+					});
+				}
+			};
+		});
+	</script>
+</body>
+</html>
