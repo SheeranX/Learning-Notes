@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Directive</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+</head>
+<body>
+	<ts-A>
+		<ts-B>{{tip}}</ts-B>
+		
+	</ts-A>
+	<script type="text/javascript">
+		var app = angular.module('app', []);
+		app.controller('ctrl', ['$scope', function($scope){
+			$scope.tip = 'track compile';
+		}]);
+		app.directive('tsA',function(){
+			return {
+				restrict:'EAC',
+				compile:function(tEle,tAttrs,trans){
+					console.log('EXCUTIVE A');
+					return{
+						pre:function(scope,iEle,iAttrs){
+							console.log('now excutive pre in A');
+						},
+						post:function(scope,iEle,iAttrs){
+							console.log('now excutive post in A');
+						}
+					}
+				}
+			};
+		});
+
+		app.directive('tsB',function(){
+			return {
+				restrict:'EAC',
+				compile:function(tEle,tAttrs,trans){
+					console.log('go with B');
+					return {
+						pre:function(scope,iEle,iAttrs){
+							console.log('Now excutive pre in B');
+						},
+						post:function(scope,iEle,iAttrs){
+							console.log('excutive post in B');
+						}
+					};
+				}
+			};
+		});
+	</script>
+</body>
+</html>
