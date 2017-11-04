@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FileUpload</title>
+    <script src="angular.min.js"></script>
+    <script src="ng-file-upload-shim.js"></script>
+    <script src="ng-file-upload.min.js"></script>
+    <script src="Index.js"></script>
+</head>
+<body ng-app="app">
+    <div ng-controller="ctrl">
+        <form name="form">
+            <!--<label>select files<span>*</span>:</label>
+            <div>
+                <input type="text" name="file" value=""/>
+                <button type="button" ngf-select ng-model="file">Browse...</button>
+                <br />
+                <button type="button" ng-click="submit()">upload</button>
+            </div>-->
+            Single Image with validations
+            <div class="button" ngf-select ng-model="file" name="file"
+                ngf-max-size="20MB" ngf-min-height="100"
+                 ngf-resize="{width: 100, height: 100}">Select</div>
+            <p>{{file.name}}</p>
+            <button type="submit" ng-click="submit()">submit</button>
+        </form>
+    </div>
+</body>
+</html>
