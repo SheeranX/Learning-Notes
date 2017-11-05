@@ -28,7 +28,6 @@ namespace FileUpload.Controllers
 
             var originFileName = GetDeserializedFileName(result.FileData.First()); 
 
-
             var uploadFileInfo = new FileInfo(result.FileData.First().LocalFileName);
 
             var filleUploadObj = GetFormData<UploadDataModel>(result);

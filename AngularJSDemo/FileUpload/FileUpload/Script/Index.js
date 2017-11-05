@@ -15,9 +15,10 @@ app.controller('ctrl', function ($scope, Upload) {
     $scope.upload = function (file) {
         Upload.upload({
             url: '/api/files/UpLoad',
-            data: {file: file}
+            data: { fileUploadObj: "Hello" },
+            file:file
         }).then(function (resp) {
-            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+            console.log('Success ' + resp.config.data + ' uploaded. Response: ' + resp.data);
         }, function (resp) {
             console.log('Error status: ' + resp.status);
         }, function (evt) {
