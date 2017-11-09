@@ -43,7 +43,7 @@ namespace FileDownload
             IWorkbook workbook = null;
             ISheet sheet = null;
             IRow row = null;
-            ICell cell = null;
+            //ICell cell = null;
             int startRow = 0;
 
             using (fs = File.OpenRead(filePath))
@@ -76,11 +76,11 @@ namespace FileDownload
 
                                     if (isColumnName)
                                     {
-                                        startRow = 1;
+                                       // startRow = 1;        
 
                                         for (int i = firstRow.FirstCellNum; i < cellCount; ++i)
                                         {
-                                            cell = firstRow.GetCell(i);
+                                            ICell cell = firstRow.GetCell(i);
                                             if (cell != null)
                                             {
                                                 if (cell.StringCellValue != null)
@@ -90,13 +90,13 @@ namespace FileDownload
                                                 }
                                             }
                                         }
-
+                                        startRow = sheet.FirstRowNum + 1;
                                     }
                                     else
                                     {
                                         for (int i = firstRow.FirstCellNum; i < cellCount; ++i)
                                         {
-                                            column = new DataColumn("column" + (i + 1));
+                                            column = new DataColumn("column" + (i));
                                             datatable.Columns.Add(column);
                                         }
                                     }
@@ -109,39 +109,19 @@ namespace FileDownload
 
                                         datarow = datatable.NewRow();
 
-                                        for (int j = row.FirstCellNum; j < cellCount; j++)
+                                        for (int j = row.FirstCellNum; j < cellCount; ++j)
                                         {
-                                            cell = row.GetCell(j);
-
-                                            if (cell == null)
-                                                datarow[j] = "";
-                                            else
-                                            {
-                                                switch (cell.CellType)
-                                                {
-                                                    case CellType.Blank:
-                                                        datarow[j] = "";
-                                                        break;
-                                                    case CellType.Numeric:
-                                                        short format = cell.CellStyle.DataFormat;
-                                                        if (format == 14 || format == 57 || format == 58)
-                                                            datarow[j] = cell.DateCellValue;
-                                                        else
-                                                            datarow[j] = cell.NumericCellValue;
-                                                        break;
-                                                    case CellType.String:
-                                                        datarow[j] = cell.StringCellValue;
-
-                                                        break;
-
-                                                }
+                                            if (row.GetCell(j) != null)
+                                                // if (cell == null) continue;
+                                                datarow[j] = row.GetCell(j);//cell.StringCellValue;
                                             }
-                                        }
                                         datatable.Rows.Add(datarow);
+                                        }
+                                        
                                     }
 
                                 }//title
-                            }
+                            
                             catch (Exception) {
                                 datatable = null;
                                 File.Delete(filePath);
