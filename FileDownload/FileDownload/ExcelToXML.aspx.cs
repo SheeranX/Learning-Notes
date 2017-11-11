@@ -10,6 +10,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
 
 namespace FileDownload
 {
@@ -25,16 +26,22 @@ namespace FileDownload
             if (FileUpload.HasFile)
             {
                 string filename = FileUpload.FileName.ToString();
-                string path = Server.MapPath("~/Template/")+filename;
-                FileUpload.PostedFile.SaveAs(path);
+                string path = Server.MapPath("~/Template/");
+                FileUpload.PostedFile.SaveAs(path+filename);
                 //string path = Path.GetDirectoryName(FileUpload.PostedFile.FileName);
+                DataTable table = ExcelToDataTable(path, true, filename);
+                if (table!=null) {
+                    CreateXml(table, path, filename);
+                    GridView.DataSource = table;
+                    GridView.DataBind();
+                }
+               
 
-                GridView.DataSource = ExcelToDataTable(path,true);
-                GridView.DataBind();
+
             }
         }
 
-        public static DataTable ExcelToDataTable(string filePath, bool isColumnName)
+        public static DataTable ExcelToDataTable(string filePath, bool isColumnName,string filename)
         {
             DataTable datatable = null;
             FileStream fs = null;
@@ -45,12 +52,13 @@ namespace FileDownload
             IRow row = null;
             //ICell cell = null;
             int startRow = 0;
+            string filepath = filePath + filename;
 
-            using (fs = File.OpenRead(filePath))
+            using (fs = File.OpenRead(filepath))
             {
-                if (filePath.IndexOf(".xlsx") > 0)
+                if (filepath.IndexOf(".xlsx") > 0)
                     workbook = new XSSFWorkbook(fs);
-                else if (filePath.IndexOf(".xls") > 0)
+                else if (filepath.IndexOf(".xls") > 0)
                     workbook = new HSSFWorkbook(fs);
 
                 if (workbook != null)
@@ -124,7 +132,7 @@ namespace FileDownload
                             
                             catch (Exception) {
                                 datatable = null;
-                                File.Delete(filePath);
+                                File.Delete(filepath);
                             }
                            
 
@@ -134,6 +142,56 @@ namespace FileDownload
                 }
             }
             return datatable;
+        }
+
+        public static bool ExcelToXml(DataTable dt,string filepath,string filename) {
+            return true;
+        }
+
+        public static bool CreateXml(DataTable dt,string path,string filename) {
+            XmlDocument doc = new XmlDocument();
+            XmlDeclaration dec = doc.CreateXmlDeclaration("1.0","utf-8",null);
+            doc.AppendChild(dec);
+
+            XmlElement root = doc.CreateElement("table");
+            doc.AppendChild(root);
+            foreach(DataRow dr in dt.Rows){
+
+                    XmlElement tab = doc.CreateElement("TAB");
+                    root.AppendChild(tab);
+
+                    XmlElement num = doc.CreateElement("No.");
+                    num.InnerText = dr["序号"].ToString();
+                    tab.AppendChild(num);
+
+                    XmlElement name = doc.CreateElement("Number");
+                    name.InnerText = dr["姓名"].ToString();
+                    tab.AppendChild(name);
+
+                    XmlElement time = doc.CreateElement("Time");
+                    time.InnerText = dr["入团时间"].ToString();
+                    tab.AppendChild(time);
+
+            }
+
+                doc.Save(CheckXml(path, filename));
+            return true;
+        }
+
+        public static string CheckXml(string path,string filename)
+        {
+            string xmlPath = null;
+            string newname = null;
+            if (File.Exists(path+filename))
+            {
+                newname = filename.Split('.')[0] + ".bk.xml";
+                xmlPath = path + newname;
+                return xmlPath;
+            }
+            else {
+                newname = filename.Split('.')[0] + ".xml";
+                return path + newname;
+            }
         }
     }
 }
