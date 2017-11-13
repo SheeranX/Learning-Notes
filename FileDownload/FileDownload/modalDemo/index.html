@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Javascript/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="Javascript/jquery.leanModal.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //$('#aOpen').leanModal({ top: 100, closeButton: ".modal_close" });
+            $('a[rel*=leanModal]').leanModal({ top: 100, closeButton: ".modal_close" });
+        });
+    </script>
+    <style type="text/css">
+        #lean_overlay { position: fixed; z-index: 100; top: 0px; left: 0px; height: 100%; width: 100%; background: #000; display: none; }
+        #OpenWindow { background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 4px rgba(0, 0, 0, 0.7); display: none; padding-bottom: 2px; width: 404px; z-index: 11000; left: 50%; margin-left: -202px; opacity: 1; position: fixed; top: 200px; }
+        #OpenWindow-header { background: url("Image/hd-bg.png") repeat scroll 0 0 transparent; border-bottom: 1px solid #CCCCCC; border-top-left-radius: 5px; border-top-right-radius: 5px; padding: 18px 18px 14px; }
+        .modal_close { background: url("Image/modal_close.png") repeat scroll 0 0 transparent; display: block; height: 14px; position: absolute; right: 12px; top: 12px; width: 14px; z-index: 2; }
+
+
+        body { font-size: 13px; }
+        #OpenWindow .txt-fld { border-bottom: 1px solid #EEEEEE; padding: 14px 20px; position: relative; text-align: right; width: 364px; }
+        #OpenWindow .txt-fld input { background: none repeat scroll 0 0 #F7F7F7; border-color: #CCCCCC #E7E6E6 #E7E6E6 #CCCCCC; border-radius: 4px 4px 4px 4px; border-style: solid; border-width: 1px; color: #222222; font-family: "Helvetica Neue"; font-size: 1.2em; outline: medium none; padding: 8px; width: 244px; }
+        #OpenWindow .txt-fld input.good_input { background: url("Image/good.png") no-repeat scroll 236px center #DEF5E1; }
+        #OpenWindow .btn-fld { overflow: hidden; padding: 12px 20px 12px 130px; width: 254px; }
+        button { background: none repeat scroll 0 0 #3F9D4A; border: medium none; border-radius: 4px 4px 4px 4px; color: #FFFFFF; float: right; font-family: Verdana; font-size: 13px; font-weight: bold; overflow: visible; padding: 7px 10px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); width: auto; }
+    </style>
+</head>
+<body>
+    <div style="text-align: center">
+        <ul>
+            <li><a id="aOpen" href="#OpenWindow" rel="leanModal">打开登陆窗口</a></li>
+            <li><a href="#reg" rel="leanModal">打开描述窗口</a></li>
+        </ul>
+    </div>
+    <div id="OpenWindow">
+        <div id="signup-ct">
+            <div id="OpenWindow-header">
+                <h2>
+                    Create a new account
+                </h2>
+                <p>
+                    It's simple, and free.
+                </p>
+                <a href="#" class="modal_close"></a>
+            </div>
+            <!--<form action="">
+            <div class="txt-fld">
+                <label for="">
+                    Username</label>
+                <input type="text" name="" class="good_input" id="" />
+            </div>
+            <div class="txt-fld">
+                <label for="">
+                    Email address</label>
+                <input type="text" name="" id="" />
+            </div>
+            <div class="txt-fld">
+                <label for="">
+                    Password</label>
+                <input type="text" name="" id="" />
+            </div>
+            <div class="btn-fld">
+                <button type="submit">
+                    Sign Up »</button>
+            </div>
+            </form>-->
+        </div>
+    </div>
+    <div id="reg" style="background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px 5px 5px 5px;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.7); display: none; padding-bottom: 2px; width: 404px;
+        z-index: 11000; left: 50%; margin-left: -202px; opacity: 1; position: fixed;
+        top: 200px;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum libero purus,
+        convallis nec vestibulum eget, luctus vitae purus. Vestibulum non mauris et sem
+        vulputate pellentesque ac a turpis. Ut vel lacus vitae justo vestibulum lobortis.
+        Nunc ipsum ipsum, laoreet id dictum nec, fermentum vel purus. Maecenas nisl felis,
+        faucibus non rutrum eu, sollicitudin sed ante. Class aptent taciti sociosqu ad litora
+        torquent per conubia nostra, per inceptos himenaeos. Praesent dignissim lacinia
+        tempus. Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus
+        et malesuada fames ac turpis egestas. Nulla facilisi. Nulla accumsan pellentesque
+        velit, a malesuada diam tristique a. Fusce eleifend magna erat, et imperdiet orci.
+        Quisque sapien mauris, malesuada eu tristique pulvinar, placerat id ligula. Vivamus
+        vitae viverra nulla. Donec eget turpis vel erat malesuada sodales.
+    </div>
+</body>
+</html>

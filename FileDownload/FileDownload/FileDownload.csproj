@@ -79,6 +79,13 @@
   <ItemGroup>
     <Content Include="ExcelToXML.aspx" />
     <Content Include="FileDownload.aspx" />
+    <Content Include="modalDemo\Image\good.png" />
+    <Content Include="modalDemo\Image\hd-bg.png" />
+    <Content Include="modalDemo\Image\modal_close.png" />
+    <Content Include="modalDemo\index.html" />
+    <Content Include="modalDemo\Javascript\jquery-1.4.1.min.js" />
+    <Content Include="modalDemo\Javascript\jquery.leanModal.min.js" />
+    <Content Include="PopUp.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +103,13 @@
     </Compile>
     <Compile Include="FileDownload.aspx.designer.cs">
       <DependentUpon>FileDownload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUp.aspx.cs">
+      <DependentUpon>PopUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUp.aspx.designer.cs">
+      <DependentUpon>PopUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
