@@ -21,5 +21,22 @@
         <asp:FileUpload ID="FileUpload" runat="server"/>
     </div>
     </form>
+    <script>
+
+        var userData = "{username:'test1',pwd:'password'}";
+        $.ajax({
+            type: 'post',
+            url: 'NormalPage.aspx/Login',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: userData,
+            success: function (result) {
+                alert(result.d);
+            },
+            error: function () {
+                alert('error');
+            }
+        });
+    </script>
 </body>
 </html>

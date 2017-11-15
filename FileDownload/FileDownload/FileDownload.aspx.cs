@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -56,6 +57,11 @@ namespace FileDownload
                  Response.Write("<script>alert('sorry!file not exist')</script>");
              }
             
+        }
+
+        [WebMethod]
+        public static string Login(string username,string pwd) {
+            return username + pwd;
         }
     }
 }
