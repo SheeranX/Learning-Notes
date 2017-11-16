@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileDownload", "FileDownload\FileDownload.csproj", "{A0DA20A3-C797-461E-88F2-342B11F36A1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileIO", "FileIO\FileIO.csproj", "{4265FCBC-8B1A-4A6A-A710-0D6A236C8C4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A0DA20A3-C797-461E-88F2-342B11F36A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0DA20A3-C797-461E-88F2-342B11F36A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0DA20A3-C797-461E-88F2-342B11F36A1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4265FCBC-8B1A-4A6A-A710-0D6A236C8C4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4265FCBC-8B1A-4A6A-A710-0D6A236C8C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4265FCBC-8B1A-4A6A-A710-0D6A236C8C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4265FCBC-8B1A-4A6A-A710-0D6A236C8C4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
