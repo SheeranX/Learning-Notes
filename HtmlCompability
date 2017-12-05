@@ -1,0 +1,37 @@
+HTML5 
+  IE9+/Chrome/Safari/FF/Opera;
+  -------------------------------------------
+  IE9- 
+    <!--[if lt IE 9]>
+    <script src="http://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+    
+  /*html5*/
+  article,aside,dialog,footer,header,section,nav,figure,menu{display:block}
+ 
+ 1.<canvas>
+ 	IE9+/Chrome/Safari/Opera/FF;
+ 2.svg :
+  	IE9+/Chrome/Safari/Opera/FF;
+ 3.drag:
+ 	IE9+/Chrome/Safari(5+)/Opera/FF;
+ 4.HTML5 Geolocation AP:
+        IE9+/Chrome/Safari(5+)/Opera/FF;
+ 5.<vedio>
+ 	IE9+/Chrome/Safari(5+)/Opera/FF;
+ 6.<audio>
+ 	IE9+/Chrome/Safari(5+)/Opera(10+)/FF;
+ 7. Input 
+ 	a.color:chrome/opera
+	b.date:chrome/opera/safari
+	c.datetime:safari/opera
+	d.datetime-local: chrome/safari/opera
+	e.email :IE9+/Chrome/Opera/FF;
+	f.month:Chrome/Safari/Opera
+	g.number: IE9+/Chrome/Safari(5+)/Opera(10+);
+	h.range: IE9+/Chrome/Safari(5+)/Opera(10+);
+	i.search:Chrome/Safari;
+	j.tel:none;
+	k.time: chrome/safari/opera;
+	l.url: IE9+/Chrome/Opera(10+)/FF;
+	m.week:chrome/safari/opera;
