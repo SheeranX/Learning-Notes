@@ -1,0 +1,40 @@
+A.Browser core 
+        1. IE: Trident;
+        2. Safari: Webkit;
+        3. Chrome: Webkit;
+        4. Opera : Webkit;
+        5: FireFox: Gecko;
+B. CSS3 compability :
+     border: 
+        1. border-radius: IE9+/Chrome/FF/Opera/Safari;
+        2. border-shadow:IE9+/Chrome/FF/Opera/Safari;
+        3. border-image: Safari5- -webkit-/ opera -o-/FF/Chrome;
+     background:
+        1.background-size: IE9+/Chrome/FF/Opera/Safari;
+        2.background-origin:IE9+/Chrome/FF/Opera/Safari;
+     text:
+        1. text-shadow: IE10+/Chrome/FF/Opera/Safari;
+        2. word-wrap: IE6+/Chrome/FF/Opera/Safari;
+    font:
+        1.@font-face(.ttf&.otf): Chrome/FF/Opera/Safari/IE9+(.eot);
+    transform:
+        1. 2D: IE10+/FF/Opera
+               IE9(-ms-)/Chrome(-webkit-)/Sarifi(-webkit-);
+        2. 3D: IE10+/Ff
+               Chrome(-webkit-)/Safari(-webkit-);
+               Opera: none;
+    transtion 
+        1.IE10+/FF/Chrome/Opera/Safari(-web-kit);
+    @keyframes/animation:
+        1. IE10+/FF/Chrome(-web-kit)/Opera/Safari(-web-kit);
+        
+     Column:
+        1. Column-count:IE10+/Opera/Chrome(-web-kit)/Safari(-web-kit)/FF(-moz-);
+        2. column-gap: IE10+/Opera/Chrome(-web-kit)/Safari(-web-kit)/FF(-moz-);
+        3. column-rule: IE10+/Opera/Chrome(-web-kit)/Safari(-web-kit)/FF(-moz-);
+     resize: FF/Chrome/Safari;
+     box-sizing:IE/Opera/Chrome/Safari/FF(-moz-);
+     outline-offset: Chrome/FF/Opera/Safari;
+     
+        
+                
