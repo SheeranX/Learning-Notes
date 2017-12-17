@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <style>
+                .wrap{
+                    position: relative;
+                    width: 400px;
+                    height: 150px;
+                    border: 1px solid red;
+                }
+                .wrap .cont{
+                    position: absolute;
+                    top: calc(50% - 30px);
+                    left: calc(50% - 50px);
+                    width: 100px;
+                    height: 60px;
+                    background: gray;
+                }
+        
+                .wrap02{
+                    position: relative;
+                    width: 400px;
+                    height: 150px;
+                    border: 1px solid red;
+                }
+                .wrap02 .cont{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%; 
+                    transform: translate(-50%,-50%);
+                    background: gray;
+                }
+            </style>
+    <div class="wrap">
+        <div class="cont">这个内容部分需要定宽和定高</div>
+    </div>
+    <div class="wrap02">
+        <div class="cont">这个内容部分可以实现自适应</div>
+    </div>
+</body>
+</html>
