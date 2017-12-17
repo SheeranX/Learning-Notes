@@ -1,0 +1,22 @@
+
+//this 
+var obj = {
+	foo:"hello",
+	func:function(){
+		var self = this;
+		 console.log(this.foo);//hello
+		 console.log(self.foo);//hello
+		 (funciton(){
+		 	console.log(this.foo);//undefined
+			console.log(self.foo);//hello
+		 })();
+	}
+}
+
+obj.func();
+//variable improvement 
+var hello = 'hello';
+for(var i=0 ;i<10;i++){
+	var hello = 'hello'+i*2+i;//string & improve variable
+}
+console.log(hello);//hello189
