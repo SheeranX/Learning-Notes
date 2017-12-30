@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Apple Nav</title>
+</head>
+<body>
+	<style type="text/css">
+		*{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+a:hover{
+    color: #ccc;
+}
+body{
+    background: #ccc;
+}
+.globalNav {
+    background: #000;
+    color: #fff;
+    height: 50px;
+    margin: 0 auto;
+}
+.navList{
+    display: none;
+}
+@media screen and (min-width:768px){
+    .navBar{
+        overflow: hidden;
+        text-align: justify;
+        margin: 0 auto;
+        width: 80%;
+        height: 48px;
+    }
+    .navBar:after{  
+        content:'';  
+        width:100%;  
+        display:inline-block;  
+    }   
+    .globalNav .navContent .navBar>li{
+        text-decoration: none;
+        list-style: none;
+        display: inline-block;
+        margin: auto 10px;
+        height: 48px;
+        line-height: 48px;
+    }
+    .globalNav .navContent .navBar>li a{
+        display: block;
+        min-height: 50%;
+        text-align: center;
+    }
+}
+@media screen and (min-width:360px) and (max-width:768px){
+    .navBar{
+        display: none;
+    }
+    .navList {
+        display: block;
+        height: 48px;
+        width: 100%;
+    }
+    .navList ul{
+        overflow: hidden;
+        text-align: justify;
+    }
+    .navList ul:after{
+        content:'';
+        display: inline-block;
+        width: 80%;
+    }
+    .navList ul{
+        list-style: none;
+    }
+    .navList ul li{
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
+    }   
+    .navList ul li:last-child{
+        text-align: right;
+        margin-right: 10px;
+    }
+    .navList ul li:first-child{
+        text-align: left;
+        margin-left: 10px;
+    }
+    .navList ul li:nth-child(2n){
+        text-align: center;
+    }
+
+}
+@media screen and (max-width:360px){
+    .navBar{
+        display: none;
+    }
+    .navList {
+        display: block;
+        height: 48px;
+        width: 100%;
+        min-width: 200px;
+    }
+    .navList ul{
+        overflow: hidden;
+        text-align: justify;
+    }
+    .navList ul:after{
+        content:'';
+        display: inline-block;
+        width: 80%;
+    }
+    .navList ul{
+        list-style: none;
+    }
+    .navList ul li{
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
+    }   
+    .navList ul li:last-child{
+        text-align: right;
+        margin-right: 10px;
+    }
+    .navList ul li:first-child{
+        text-align: left;
+        margin-left: 10px;
+    }
+    .navList ul li:nth-child(2n){
+        text-align: center;
+    }
+}
+</style>
+<nav class="globalNav">
+    <div class="navContent">
+        <ul class="navBar">
+            <li><a href="#">icon</a></li>
+            <li><a href="#">music</a></li>
+            <li><a href="#">album</a></li>
+            <li><a href="#">singer</a></li>
+            <li><a href="#">location</a></li>
+            <li><a href="#">location</a></li>
+            <li><a href="#">location</a></li>
+            <li><a href="#">location</a></li>
+        </ul>
+    </div>
+    <div class="navList">
+        <ul>
+            <li><a href="#">+</a></li>
+            <li><a href="#">icon</a></li>
+            <li><a href="#">bag</a></li>
+        </ul>
+    </div>
+</nav>
+</body>
+</html>
