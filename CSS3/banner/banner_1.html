@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <div id="frame">
+       <div id="images" class="play">
+        <img src="../images/TS.jpg" width="200px" height="150px">
+        <img src="../images/TS2.jpg" width="200px" height="150px">
+        <img src="../images/TS3.jpg" width="200px" height="150px">
+       </div>
+   </div>
+   <style>
+       #frame{
+           position: absolute;
+           width: 200px;
+           height: 600px;
+           overflow: hidden;
+           border-radius: 5px;
+       }
+       #dis{
+           position: absolute;
+           left: -50px;
+           top:-10px;
+           opacity: .5;
+       }
+       #images img{
+           float: left;
+       }
+       #images{
+           position: absolute;
+           z-index: 9;
+           width: calc(200px*3);
+       }
+       .play{
+           animation: ma 5s ease-out infinite alternate;
+       }
+       @keyframes ma{
+           0%,33%{
+               margin-left: 0px;
+           }
+           33%,66%{
+               margin-left: -200px;
+           }
+           66%,100%{
+               margin-left: -400px;
+           }
+       }
+   </style>
+</body>
+</html>
