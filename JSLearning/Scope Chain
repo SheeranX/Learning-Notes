@@ -1,2 +1,3 @@
 what is Scope and how to understand scope?
 --https://www.cnblogs.com/lhb25/archive/2011/09/06/javascript-scope-chain.html
+Every function has a [[scope]] , when it be called , it will create an 'execution context' which contains a 'Scope Chain', and the 'Scope Chain' will inited as an object in [[scope]], this object is 'activation object' contains 'this','arguments'and so on .
